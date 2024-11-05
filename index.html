@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Завод топливного оборудования</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+</head>
+
+<body>
+    <div class="modal fade" id="modul" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title modal-title-card h4" id="exampleModalXlLabel">
+                        Топливный модуль для перекачки керосина, авиационного бензина, ПОЖ
+                    </h5> -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-card">
+                        Колонки топливораздаточные ТАНКЕР ТРК) предназначены для измерений количества нефтепродуктов:
+                        бензин,
+                        дизельное топливо (опционально: масло и керосин), и выдачу в баки транспортных средств и тару
+                        потребителей
+                        на автозаправочных станциях.
+                        Задание дозы топлива и включение ТРК производится в ручном режиме на корпусе ТРК или оператором
+                        дистанционно при помощи пульта или персонального компьютера.
+                        Топливные колонки ТАНКЕР являются интерфейсными и осуществляют обмен данным через интерфейс
+                        RS-485,
+                        протокол обмена данными совместим с протоколом 2,0. Бензоколонки ТАНКЕР способны работать
+                        практически
+                        со всеми распространенными системами управления коммерческих и ведомственных АЗС, в составе
+                        Бензороботов, осуществляющих отпуск топлива на автозаправочных станциях самообслуживания.
+                        Топливные колонки имеют разные модификации, для выбора - заполните опросный лист.
+                        Базовая модель это ТРК ТАНКЕР 1.1.1.1.1 - с параметрами трехстрочное табло, 40 литров минуту,
+                        Всасывающая
+                        гидравлика, напряжение питания 380 вольт, юстировка или госповерка - практически всегда есть на
+                        складе.
+                        Топливозаправочные колонки сертифицированы и включены в реестр средств измерений:
+                        − Сертификат соответствия ТР ТС 012/2011 «ЕАЭС N RU С-RU.АЖ58.В.03187/22 Серия RU №0393224» О
+                        безопасности оборудования для работы во взрывоопасных средах.
+                        − Сведения об утвержденных типах средств измерений во ФГИС Аршин — Рег. № 89407-23.
+                    </div>
+                    <button id="orderBtn" data-bs-dismiss="modal" aria-label="Close">Заказать</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTopBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 64 64" xml:space="preserve">
+            <g fill="#010101">
+                <path fill="currentColor"
+                    d="M57.3 64c-1.15 0-2.29-.45-3.14-1.35L32 39.23 9.85 62.65a4.317 4.317 0 0 1-6.11.17 4.33 4.33 0 0 1-.18-6.12l25.3-26.74c.82-.86 1.95-1.35 3.14-1.35s2.32.49 3.14 1.35l25.3 26.74a4.317 4.317 0 0 1-.17 6.11c-.84.8-1.91 1.19-2.97 1.19"
+                    data-original="#010101" />
+                <path fill="currentColor"
+                    d="M57.3 35.39c-1.15 0-2.29-.45-3.14-1.35L32 10.62 9.85 34.04a4.317 4.317 0 0 1-6.11.17 4.33 4.33 0 0 1-.18-6.12l25.3-26.74C29.68.49 30.81 0 32 0s2.32.49 3.14 1.35l25.3 26.74a4.317 4.317 0 0 1-.17 6.11c-.84.8-1.91 1.19-2.97 1.19"
+                    data-original="#010101" />
+            </g>
+        </svg>
+    </button>
+
+    <div class="fixed__socials">
+        <ul class="fixed-icon-wrapper">
+            <!-- phone -->
+            <li class="fixed-icon__item bg">
+                <a href="tel:+73512235069">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1.531 1.531"
+                        xml:space="preserve">
+                        <path fill="currentColor"
+                            d="M1.321.774h-.078A.46.46 0 0 0 .781.312V.234a.54.54 0 0 1 .54.54M.781.368v.078a.33.33 0 0 1 .327.327h.078A.406.406 0 0 0 .781.368M.766 0a.766.766 0 0 0 0 1.532.047.047 0 0 0 0-.095.672.672 0 1 1 .671-.671.43.43 0 0 1-.2.373.3.3 0 0 1-.139.036.2.2 0 0 0 .075-.072q.007-.008.011-.017c.015-.037.017-.079.026-.118C1.221.918.992.821.972.883.965.906.954.979.939.998.926 1.015.894 1.007.874.99.822.945.763.88.712.828L.708.824.704.82C.652.769.587.71.542.658.525.638.517.606.534.593.553.578.626.568.649.56.711.54.614.31.564.322.525.331.483.333.446.348L.429.359C.298.442.281.644.409.795a4 4 0 0 0 .152.168l.004.004.004.004c.054.052.119.13.224.199.22.147.39.106.489.051.172-.095.249-.297.249-.456A.766.766 0 0 0 .766 0" />
+                    </svg>
+                </a>
+            </li>
+
+            <!-- mail -->
+            <li class="fixed-icon__item bg">
+                <a href="mailto:opzto@chzto.ru">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"
+                        xml:space="preserve">
+                        <path fill="currentColor"
+                            d="M31.719 4.375H3.281A3.28 3.28 0 0 0 0 7.656v19.688a3.28 3.28 0 0 0 3.281 3.281h28.438A3.28 3.28 0 0 0 35 27.344V7.656a3.28 3.28 0 0 0-3.281-3.281m-3.863 2.188L17.5 14.739 7.144 6.563zm2.769 21.875H4.375V10.163L17.5 20.258l13.125-10.097z"
+                            data-original="#000000" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <div class="fixed__open-close-icon-wrapper fixed-icon__item">
+            <!-- <svg
+            class="fixed__socials__open"
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="35"
+            viewBox="0 0 1.641 1.641"
+            xml:space="preserve"
+          >
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M.271 1.113a.05.05 0 0 1 0-.072L.784.528a.05.05 0 0 1 .072 0l.513.513a.051.051 0 1 1-.072.072L.82.636l-.476.476a.05.05 0 0 1-.072 0"
+              clip-rule="evenodd"
+            />
+          </svg> -->
+
+            <svg class="fixed__socials__open" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                viewBox="0 0 35 35" xml:space="preserve">
+                <path fill="currentColor"
+                    d="M27.754 2.119h-8.203c-3.957 0-7.178 3.22-7.178 7.178 0 3.61 2.679 6.606 6.152 7.105v3.149a1.02 1.02 0 0 0 .633.947c.378.158.822.073 1.118-.222l3.801-3.801h3.677c3.957 0 7.246-3.22 7.246-7.178s-3.289-7.178-7.246-7.178m-8.203 8.203a1.025 1.025 0 1 1 0-2.05 1.025 1.025 0 0 1 0 2.05m4.102 0a1.025 1.025 0 1 1 0-2.05 1.025 1.025 0 0 1 0 2.05m4.102 0a1.025 1.025 0 1 1 0-2.05 1.025 1.025 0 0 1 0 2.05"
+                    data-original="#000000" />
+                <path fill="currentColor"
+                    d="M23.037 32.881a3.08 3.08 0 0 0 3.076-3.076v-4.102c0-.442-.282-.833-.701-.972l-6.138-2.051a1.03 1.03 0 0 0-.893.119l-2.61 1.739c-2.764-1.318-6.043-4.597-7.361-7.361l1.739-2.61a1.03 1.03 0 0 0 .119-.893L8.217 7.536a1.02 1.02 0 0 0-.971-.7h-4.17A3.067 3.067 0 0 0 0 9.898c0 11.814 11.223 22.983 23.037 22.983"
+                    data-original="#000000" />
+            </svg>
+
+            <svg class="fixed__socials__close" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                viewBox="0 0 1.117 1.117" xml:space="preserve">
+                <path
+                    d="M.016.093a.056.056 0 0 1 0-.077.056.056 0 0 1 .077 0l.465.466.466-.466a.055.055 0 0 1 .077 0 .054.054 0 0 1 0 .077L.636.558l.465.466a.054.054 0 0 1 0 .077.055.055 0 0 1-.077 0L.558.635l-.465.466a.056.056 0 0 1-.077 0 .055.055 0 0 1 0-.077L.481.558z"
+                    fill="currentColor" data-original="currentColor" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="price-form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">
+                        Получить консультацию
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="sendmail" name="sendmail" action="">
+                        <p style="margin-top: 15px"></p>
+                        <div class="row">
+                            <div class="col-12">
+                                <input required="" type="text" name="ad" class="effect" placeholder="Ваше имя" />
+                            </div>
+                            <div class="col-12">
+                                <input required="" type="text" name="phone" class="effect" placeholder="Ваш телефон" />
+                            </div>
+                            <div class="col-12">
+                                <input required="" type="text" name="phone" class="effect" placeholder="Ваш e-mail" />
+                            </div>
+                            <!--<div class="col-12">
+              <select name="dizayn" class="effect" required="">
+                <option selected="selected" disabled="" value="">-- Xidmət növünü seçin --</option>
+                {custom category="2" template="modal_select"}
+              </select>
+          </div>-->
+
+                            <div class="col-12">
+                                <input class="btn submit-btn" type="submit" name="submit2" value="Отправить" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="section-top">
+            <div class="container">
+                <div class="section-top__inner">
+                    <nav>
+                        <div class="menu-btn-mobile" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                            aria-controls="offcanvasExample">
+                            <div class="menu-btn-mobile__inner">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                        <div class="nav-right">
+                            <a href="/">
+                                <img class="logo" src="/assets/img/logo.png"
+                                    alt="Челябинский завод топливного оборудования">
+                            </a>
+                            <ul class="menu">
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#about">О нас</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#products">Товары</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="#contact">Контакты</a>
+                                </li>
+
+
+                            </ul>
+
+                            <div class="contact-block lang-list lang-desktop">
+                                <div class="contact-block__item">
+                                    <div class="contact-block__item--icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z">
+                                            </path>
+                                        </svg>
+                                    </div>
+
+                                    <div class="contact-block__value-wrap">
+                                        <span class="contact-block__label">Позвоните нам:</span>
+                                        <span class="contact-block__text">
+                                            <a href="tel:+73512235069"> +7 (351) 223-50-69 </a>
+                                            <a href="mailto:opzto@chzto.ru">opzto@chzto.ru</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                            aria-labelledby="offcanvasExampleLabel">
+                            <div class="offcanvas-header">
+                                <svg xmlns="http://www.w3.org/2000/svg" data-bs-dismiss="offcanvas" aria-label="Close"
+                                    width="16" height="16" fill="currentColor" class="bi bi-x-lg btn-close-menu"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="mobile-menu">
+                                    <li data-bs-dismiss="offcanvas" aria-label="Close" class="menu-item">
+                                        <a class="menu-link" href="#about">О нас</a>
+                                    </li>
+                                    <li data-bs-dismiss="offcanvas" aria-label="Close" class="menu-item">
+                                        <a class="menu-link" href="#module">Модули</a>
+                                    </li>
+                                    <li data-bs-dismiss="offcanvas" aria-label="Close" class="menu-item">
+                                        <a class="menu-link" href="#contact">Контакты</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="section-bottom">
+            <div class="container">
+                <div class="section-bottom__inner">
+                    <div class="contact-block__item mobile">
+                        <div class="contact-block__item--icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <div class="contact-block__value-wrap">
+                            <div class="contact-block__label">Позвоните нам:</div>
+                            <span class="contact-block__text">
+                                <a href="tel:+73512235069"> +7 (351) 223-50-69 </a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="contact-block__inner icon">
+                        <div class="contact-block__item contact-block__item--icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-clock" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z">
+                                </path>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"></path>
+                            </svg>
+
+                            <div class="contact-block__value-wrap">
+                                <span class="contact-block__text">
+                                    Пн-Пт: 8:00 - 17:00<br>
+                                    Сб-Вс: выходной
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="contact-block__item contact-block__item--icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6">
+                                </path>
+                            </svg>
+                            <div class="contact-block__value-wrap">
+                                <span class="contact-block__text">
+                                    г. Челябинск,<br>
+                                    Бродокалмакский тракт, 6, стр. 14
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="order-btn" data-bs-toggle="modal" data-bs-target="#price-form">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0"
+                                viewBox="0 0 100 100" style="enable-background: new 0 0 16 16" xml:space="preserve"
+                                class="">
+                                <g>
+                                    <path
+                                        d="M53.382 80.042V62.789H42.277c-15.505 0-28.935 8.9-35.496 21.824-.584 1.152-2.292.976-2.657-.263A40.017 40.017 0 0 1 2.5 73.086c0-22.008 17.768-39.777 39.777-39.777h11.105V16.057c0-1.197 1.376-1.872 2.322-1.138l41.239 31.993a1.44 1.44 0 0 1 0 2.274L55.704 81.18c-.946.734-2.322.06-2.322-1.137z"
+                                        fill="currentColor" opacity="1" class=""></path>
+                                </g>
+                            </svg>
+                            Получить консультацию
+                        </a>
+                        <a class="order-btn" href="#questionnaire">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0"
+                                viewBox="0 0 100 100" style="enable-background: new 0 0 16 16" xml:space="preserve"
+                                class="">
+                                <g>
+                                    <path
+                                        d="M53.382 80.042V62.789H42.277c-15.505 0-28.935 8.9-35.496 21.824-.584 1.152-2.292.976-2.657-.263A40.017 40.017 0 0 1 2.5 73.086c0-22.008 17.768-39.777 39.777-39.777h11.105V16.057c0-1.197 1.376-1.872 2.322-1.138l41.239 31.993a1.44 1.44 0 0 1 0 2.274L55.704 81.18c-.946.734-2.322.06-2.322-1.137z"
+                                        fill="currentColor" opacity="1" class=""></path>
+                                </g>
+                            </svg>
+                            Заполнить опросный лист для расчета
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="slider">
+            <div class="swiper swiper-header">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide-1">
+                        <div class="container">
+                            <div class="swiper-text">
+                                <h2>Широкий спектр применения:</h2>
+                                <p>
+                                    Металлоконструкции востребованы как в крупных промышленных
+                                    проектах (заводы, складские комплексы), так и в гражданских
+                                    (жилые дома, торговые центры).
+                                </p>
+                                <div class="slide-btns">
+                                    <!-- <a href="#modal__contact" class="swiper-slide__btn swiper-slide__btn-1"
+                                        data-bs-toggle="modal" data-bs-target="#price-form">MORE DETAILS
+                                        <span></span></a> -->
+                                    <a class="swiper-slide__btn swiper-slide__btn-2" data-bs-toggle="modal"
+                                        data-bs-target="#price-form">Получить консультацию<span></span></a>
+                                </div>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide slide-2">
+                        <div class="container">
+                            <div class="swiper-text">
+                                <h2>Высокая надежность и долговечность продукции:</h2>
+                                <p>
+                                    Металлоконструкции отличаются прочностью и устойчивостью к
+                                    внешним воздействиям, что гарантирует долгий срок службы
+                                    построек и конструкций.
+                                </p>
+                                <div class="slide-btns">
+                                    <a class="swiper-slide__btn swiper-slide__btn-2" data-bs-toggle="modal"
+                                        data-bs-target="#price-form">Получить консультацию<span></span></a>
+                                </div>
+                            </div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-header-btns">
+                    <div class="button-prev">
+                        <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="button-next" tabindex="0" role="button">
+                        <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <span class="swiper-notification"></span>
+            </div>
+        </section>
+        <section id="products">
+            <div class="container">
+                <h2>Товары</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12 col-sm-12 mb-3">
+                        <a href="/assets/img/IMG_0846_автоматическая безоператорная.jpg" class="link" data-fancybox
+                            data-caption="Проект">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="/assets/img/IMG_0846_автоматическая безоператорная.jpg" alt=""
+                                        class="pro-imgs" />
+                                </div>
+                                <div class="text-part">
+                                    <p>
+
+
+                                    </p>
+                                    <div class="more-info">
+                                        <div class="row">
+                                            <div class="col-12 look text-center">
+                                                <span data-bs-toggle="modal" data-bs-target="#modul">Подробнее</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 col-sm-12 mb-3">
+                        <a data-bs-toggle="modal" data-bs-target="#modul" class="link" data-caption="Проект">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="/assets/img/IMG_0853_однорукавная 380В.jpg" alt="" class="pro-imgs" />
+                                </div>
+                                <div class="text-part">
+                                    <p>
+
+                                    </p>
+                                    <div class="more-info">
+                                        <div class="row">
+                                            <div class="col-12 look text-center">
+                                                <span>Подробнее</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 col-sm-12 mb-3">
+                        <a data-bs-toggle="modal" data-bs-target="#modul" class="link" data-caption="Проект">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="/assets/img/IMG_20221223_122107_двухрукавная.jpg" alt=""
+                                        class="pro-imgs" />
+                                </div>
+                                <div class="text-part">
+                                    <p>
+
+
+                                    </p>
+                                    <div class="more-info">
+                                        <div class="row">
+                                            <div class="col-12 look text-center">
+                                                <span>Подробнее</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 col-sm-12 mb-3">
+                        <a data-bs-toggle="modal" data-bs-target="#modul" class="link" data-caption="Проект">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="/assets/img/IMG_20221223_122107_однорукавная 220В.jpg" alt=""
+                                        class="pro-imgs" />
+                                </div>
+                                <div class="text-part">
+                                    <p>
+                                    </p>
+                                    <div class="more-info">
+                                        <div class="row">
+                                            <div class="col-12 look text-center">
+                                                <span>Подробнее</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 col-sm-12 mb-3">
+                        <a data-bs-toggle="modal" data-bs-target="#modul" class="link" data-caption="Проект">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="/assets/img/IMG_2203_маслораздаточная.jpg" alt="" class="pro-imgs" />
+                                </div>
+                                <div class="text-part">
+                                    <p>
+                                        
+                                    </p>
+                                    <div class="more-info">
+                                        <div class="row">
+                                            <div class="col-12 look text-center">
+                                                <span>Подробнее</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 col-sm-12 mb-3">
+                        <a data-bs-toggle="modal" data-bs-target="#modul" class="link" data-caption="Проект">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="/assets/img/ТРК ТАНКЕР 4 рукавная.jpg" alt="" class="pro-imgs" />
+                                </div>
+                                <div class="text-part">
+                                    <p></p>
+                                    <div class="more-info">
+                                        <div class="row">
+                                            <div class="col-12 look text-center">
+                                                <span>Подробнее</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <section id="about" class="about-main">
+            <div class="container about-main-container">
+                <div class="about_holder">
+                    <div class="about-image-boxes">
+                        <div class="about-img-box about-img-box1">
+                            <a href="/haqqimizda/" class="about-img-link">
+                                <img class="about-img" src="/assets/img/IMG_0846_автоматическая безоператорная.jpg"
+                                    alt="about image" loading="lazy" />
+                            </a>
+                        </div>
+                        <div class="about-img-box about-img-box2">
+                            <a href="/haqqimizda/" class="about-img-link">
+                                <img class="about-img" src="/assets/img/IMG_0853_однорукавная 380В.jpg"
+                                    alt="about image" loading="lazy" />
+                            </a>
+                        </div>
+                        <div class="about-img-box about-img-box3">
+                            <a href="/haqqimizda/" class="about-img-link">
+                                <img class="about-img" src="/assets/img/IMG_20221223_122107_однорукавная 220В.jpg"
+                                    alt="about image" loading="lazy" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="about-info-box">
+                        <p class="oneLine-truncate about-subTitle fw-bold fs-3">
+                            «Завод топливного оборудования»
+                        </p>
+                        <h2 class="twoLine-truncate about-title">О компании</h2>
+                        <p class="threeLine-truncate about-desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quibusdam architecto
+                            reiciendis. Tenetur expedita, optio dolore error corrupti corporis. Quasi, alias? Delectus
+                            aspernatur suscipit accusantium.
+                            <br />
+                            <br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere nihil placeat voluptatum
+                            unde. Porro veritatis nam cumque, maxime laborum eius neque nostrum dolorem necessitatibus
+                            quae libero pariatur facilis autem aspernatur.
+                        </p>
+                        <!-- <a href="/haqqimizda/" class="about-more-link">
+                            <span> Daha çox oxu </span>
+                            <img src="https://biyanaz.com/img/see-more.png" alt="right-arrow" loading="lazy" />
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Новости</h2>
+                    <!--<a href="/xidmetler/" class="section_link">посмотреть все блоги
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i></a>-->
+                </div>
+                <div class="services-inner">
+
+                    <div class="service-item">
+                        <a href="https://toplivnyemoduli.ru/novosti/7-novost-2.html">
+                            <img src="/assets/img/ТРК ТАНКЕР 4 рукавная.jpg"
+                                alt="Челябинский завод топливного оборудования">
+                            <h4>Маслораздаточная колонка Танкер</h4>
+                            <button class="service-btn-more">Подробнее</button>
+                        </a>
+                    </div>
+
+
+
+
+
+                    <div class="service-item">
+                        <a href="https://toplivnyemoduli.ru/novosti/6-novost-1.html">
+                            <img src="/assets/img/ТРК ТАНКЕР 4 рукавная.jpg"
+                                alt="Челябинский завод топливного оборудования">
+                            <h4>Маслораздаточная колонка Танкер</h4>
+                            <button class="service-btn-more">Подробнее</button>
+                        </a>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+        <section class="lead-magnet" id="questionnaire">
+            <div class="container">
+                <div class="d-block d-lg-flex justify-content-center">
+                    <h2>Заполните <span>мини опросный лист</span> для расчета:</h2>
+                    <div class="arrow-decor">
+                        <svg width="110" height="92" viewBox="0 0 110 92" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M64.3767 34.6767C66.1684 32.7959 67.212 30.3464 67.1415 27.2639C66.9233 17.7283 60.9576 12.296 52.8788 9.61366C41.0823 5.6974 24.7273 7.73696 15.9616 11.1284C15.5463 11.2885 15.3412 11.7554 15.5019 12.1688C15.662 12.5842 16.1284 12.7911 16.5437 12.631C25.0513 9.33877 40.9234 7.3424 52.3724 11.1424C59.7902 13.6055 65.331 18.5431 65.5302 27.3014C65.5914 29.908 64.7038 31.9721 63.193 33.5662C62.136 32.595 61.0655 31.6663 59.983 30.7829C56.9939 28.3449 48.1705 23.5336 41.0043 22.5266C35.8634 21.8056 31.5796 23.0376 30.4088 27.9253C29.7586 30.6422 30.9163 33.0439 33.2703 34.954C36.5052 37.5819 42.0862 39.2751 47.7909 39.5644C52.5405 39.806 57.3665 39.0792 60.9826 37.1823C61.7765 36.7637 62.5151 36.2925 63.1832 35.7624C77.5865 49.5113 88.7739 70.8803 90.7127 90.2657C90.7585 90.7072 91.1514 91.0313 91.5949 90.986C92.0378 90.9427 92.3605 90.5473 92.3166 90.1063C90.3447 70.4048 79.0039 48.6896 64.3767 34.6767ZM61.9867 34.6443C60.9913 33.7337 59.9835 32.8619 58.9646 32.0313C56.0995 29.696 47.647 25.0871 40.7807 24.1226C36.567 23.5301 32.9345 24.2949 31.9747 28.3007C31.4719 30.4048 32.4638 32.2234 34.2848 33.7045C36.2896 35.3317 39.2696 36.5468 42.6017 37.265C47.6604 38.3553 53.5307 38.2934 58.1075 36.6749C59.5577 36.1629 60.876 35.4913 61.9867 34.6443Z"
+                                fill="#00497e"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M68.6578 69.768C77.3865 73.7859 85.5256 82.3761 90.5442 90.6287C90.775 91.0083 91.2709 91.1286 91.6505 90.8978C92.03 90.6671 92.1522 90.1716 91.9215 89.7921C86.747 81.2809 78.33 72.448 69.3317 68.3052C68.9291 68.1194 68.4503 68.2963 68.2641 68.7009C68.0783 69.1035 68.2551 69.5822 68.6578 69.768Z"
+                                fill="#00497e"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M92.1368 89.8558C90.1026 82.1187 92.3306 71.6836 96.2827 64.7005C96.5022 64.3132 96.367 63.8204 95.9792 63.6028C95.5919 63.3833 95.1011 63.519 94.8816 63.9063C90.7415 71.222 88.4484 82.1593 90.5794 90.2653C90.6914 90.6952 91.1338 90.9527 91.5636 90.8406C91.994 90.7265 92.2508 90.2861 92.1368 89.8558Z"
+                                fill="#00497e"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="lead-magnet__form js-wrap-send-form-test">
+
+
+
+
+
+
+                    <form method="post" class="conp-form" id="sendmail" name="sendmail" action="">
+                        <div class="lead-magnet__form-inner">
+                            <div class="form-no-main">
+
+                                <p>
+                                    Тип топлива: <br>
+                                    <label>
+                                        Дизельное топливо
+                                        <input type="checkbox" name="fuel_type_p[]" value="Дизельное топливо">
+                                    </label>
+                                    <label>
+                                        Бензин
+                                        <input type="checkbox" name="fuel_type_p[]" value="Бензин">
+                                    </label>
+                                    <label>
+                                        Керосин
+                                        <input type="checkbox" name="fuel_type_p[]" value="Керосин">
+                                    </label>
+                                    <label>
+                                        Масло
+                                        <input type="checkbox" name="fuel_type_p[]" value="Масло">
+                                    </label>
+                                    <label>
+                                        <input class="special-input" name="fuel_type_custom"
+                                            placeholder="Укажите свой тип жидкости: *">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Количество рукавов: <br>
+                                    <label>
+                                        1
+                                        <input type="checkbox" name="line_count[]" value="1">
+                                    </label>
+                                    <label>
+                                        2
+                                        <input type="checkbox" name="line_count[]" value="2">
+                                    </label>
+                                    <label>
+                                        3
+                                        <input type="checkbox" name="line_count[]" value="3">
+                                    </label>
+                                    <label>
+                                        4
+                                        <input type="checkbox" name="line_count[]" value="4">
+                                    </label>
+
+                                </p>
+
+                                <p>
+                                    Напряжение питания: <br>
+                                    <label>
+                                        380 Вольт
+                                        <input type="checkbox" name="fuel_type_p[]" value="380 Вольт">
+                                    </label>
+                                    <label>
+                                        220 Вольт
+                                        <input type="checkbox" name="fuel_type_p[]" value="220 Вольт">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Производительность, л/мин (для
+                                    производительности 80 и 120 литров
+                                    применима только юстировка заводом): <br>
+                                    <label>
+                                        40
+                                        <input type="checkbox" name="fuel_type_p[]" value="40">
+                                    </label>
+                                    <label>
+                                        50
+                                        <input type="checkbox" name="fuel_type_p[]" value="50">
+                                    </label>
+                                    <label>
+                                        80 (юстировка)
+                                        <input type="checkbox" name="fuel_type_p[]" value="80 (юстировка)">
+                                    </label>
+                                    <label>
+                                        120 (юстировка)
+                                        <input type="checkbox" name="fuel_type_p[]" value="120 (юстировка)">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Госповерка или юстировка: <br>
+                                    <label>
+                                        госповерка
+                                        <input type="checkbox" name="fuel_type_p[]" value="госповерка">
+                                    </label>
+                                    <label>
+                                        юстировка
+                                        <input type="checkbox" name="fuel_type_p[]" value="юстировка">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Гидравлика: <br>
+                                    <label>
+                                        напорная
+                                        <input type="checkbox" name="fuel_type_p[]" value="напорная">
+                                    </label>
+                                    <label>
+                                        всасывающая
+                                        <input type="checkbox" name="fuel_type_p[]" value="всасывающая">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Внешний насос для напорной
+                                    гидравлики: <br>
+                                    <label>
+                                        погружной
+                                        <input type="checkbox" name="fuel_type_p[]" value="погружной">
+                                    </label>
+                                    <label>
+                                        поверхностный
+                                        <input type="checkbox" name="fuel_type_p[]" value="поверхностный">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Табло (дисплей). Для однострочного
+                                    дисплея только юстировка:
+                                    <br>
+                                    <label>
+                                        трехстрочное
+                                        <input type="checkbox" name="fuel_type_p[]" value=" трехстрочное">
+                                    </label>
+                                    <label>
+                                        однострочное (юстировка)
+                                        <input type="checkbox" name="fuel_type_p[]" value="однострочное (юстировка)">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Кнопки старт / стоп (по умолчанию без
+                                    кнопок):
+                                    <br>
+                                    <label>
+                                        Кнопки нужны
+
+                                        <input type="checkbox" name="fuel_type_p[]" value=" Кнопки нужны">
+                                    </label>
+                                    <label>
+                                        Кнопки не нужны
+                                        <input type="checkbox" name="fuel_type_p[]" value="Кнопки не нужны">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Клавиатура для набора дозы
+                                    распложенной на табло (по умолчанию
+                                    без клавиатуры):
+                                    <br>
+                                    <label>
+                                        Без клавиатуры
+
+                                        <input type="checkbox" name="fuel_type_p[]" value=" Кнопки нужны">
+                                    </label>
+                                    <label>
+                                        Дистанционный пульт управления ТРК
+                                        ТАНКЕР
+                                        <input type="checkbox" name="fuel_type_p[]" value="Кнопки не нужны">
+                                    </label>
+                                </p>
+
+                                <p>
+                                    Исполнение:
+                                    <br>
+                                    <label>
+                                        левое
+
+                                        <input type="checkbox" name="fuel_type_p[]" value="левое">
+                                    </label>
+                                    <label>
+                                        правое
+                                        <input type="checkbox" name="fuel_type_p[]" value="правое">
+                                    </label>
+                                </p>
+
+
+
+                            </div>
+                            <div class="form-main">
+                                <div class="lead-magnet__form-item">
+                                    <input name="name" id="name" placeholder="Ваше имя: *">
+                                </div>
+                                <div class="lead-magnet__form-item">
+                                    <input type="number" name="phone" id="phone" placeholder="Ваш телефон: *">
+                                </div>
+                                <div class="lead-magnet__form-item">
+                                    <input type="email" name="email" id="email" placeholder="E-mail: *">
+                                </div>
+
+                            </div>
+                            <div class="lead-magnet__form-item" style="max-width: 400px;margin-bottom: 20px;">
+                                <textarea name="message" id="message"
+                                    placeholder="Основная задача, решаемая модулем:"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" name="submit3">Отправить</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer__top">
+                <a class="footer__logo" href="/"><img width="100px" src="/assets/img/logo.png"
+                        alt="Челябинский завод топливного оборудования"></a>
+                <ul>
+
+                    <li>
+                        <a href="#about">О нас</a>
+                    </li>
+
+
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#products">Товары</a>
+                    </li>
+                </ul>
+                <ul class="footer-menu-2">
+                    <li>
+                        <a href="#contact">Контакты</a>
+                    </li>
+                </ul>
+                <div class="contact">
+                    <a class="number number-1">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>+ 7 (351) 223-50-69
+                    </a>
+
+
+                    <a class="email" href="mailto:opzto@chzto.ru"><i class="fa-solid fa-envelope"
+                            aria-hidden="true"></i>opzto@chzto.ru</a>
+
+                    <!--<a class="footer__btn" href=""> Lorem, ipsum dolor. </a>-->
+                </div>
+
+            </div>
+            <div class="footer__bottom">
+                <div class="copyright">
+                    <span style="order: 2">© Copyright <span class="date"> 2024 </span>. Все права защищены</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/d4a8753bf6.js" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/index.js"></script>
+</body>
+
+</html>
