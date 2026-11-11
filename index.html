@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="ru" data-hero="house">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Покупка и продажа недвижимости в Йошкар-Оле — «Полезные люди»</title>
+  <meta name="description" content="Агентство недвижимости «Полезные люди» в Йошкар-Оле: подбор и покупка квартир, домов и новостроек, продажа недвижимости, ипотека и юридическая проверка. Бесплатная консультация.">
+  <meta name="robots" content="noindex, nofollow"><!-- демо-стенд: не индексировать -->
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png" sizes="64x64">
+  <link rel="icon" href="assets/img/brand/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="preload" as="image" href="assets/img/photos/hero-yo-1500.webp" imagesrcset="assets/img/photos/hero-yo-900.webp 900w, assets/img/photos/hero-yo-1500.webp 1500w" imagesizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" fetchpriority="high">
+  <link rel="stylesheet" href="assets/app.css">
+  <script>
+    // Вариант hero: по умолчанию дом, вечерний город — только по ссылке ?hero=city
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get('hero');
+        var v = q;
+        if (v === 'city' || v === 'house') document.documentElement.dataset.hero = v;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main" class="sr-only z-[60] rounded-ctl bg-graphite px-4 py-3 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Перейти к содержимому</a>
+
+  <!-- Верхняя строка шапки: тот же белый фон и та же сетка, что у шапки ниже (левый край = логотип, правый = кнопка «Консультация»).
+       Иерархия типографикой: телефон — главный, остальное приглушено. Соцсети — плотной группой.
+       Прокручивается вместе со страницей, шапка ниже остаётся липкой.
+       PLACEHOLDER: телефон, адрес и часы работы не утверждены заказчиком.
+       Часы работы — ДЕМО, заменить на реальные (тот же график в футере). -->
+  <div class="topbar" data-topbar>
+    <div class="wrap wrap-wide flex h-full items-end justify-between gap-6">
+      <p class="flex min-w-0 items-center gap-x-8">
+        <span class="hidden items-center gap-1.5 whitespace-nowrap sm:inline-flex" data-topbar-hours><svg class="topbar-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>пн–пт 9:00–19:00, сб 10:00–16:00</span>
+        <span class="hidden items-center gap-1.5 whitespace-nowrap xl:inline-flex"><svg class="topbar-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Йошкар-Ола, адрес офиса уточняется</span>
+      </p>
+      <p class="flex flex-none items-center gap-x-7">
+        <span class="hidden items-center gap-4 md:flex">
+          <a href="https://vk.ru/polezno_12" target="_blank" rel="noopener" class="topbar-link hidden items-center gap-1.5 lg:inline-flex"><svg class="topbar-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>ВКонтакте</a>
+          <!-- PLACEHOLDER: адрес Telegram заказчик не сообщил — пока заглушка; заменить href на https://t.me/<аккаунт> и убрать data-stub -->
+          <a href="#" class="topbar-link inline-flex items-center gap-1.5" data-stub="Telegram агентства"><svg class="topbar-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</a>
+          <!-- PLACEHOLDER: аккаунт MAX заказчик не сообщил — заглушка. Значок — логотип MAX (maxicons.ru, исходник в brand-source/) -->
+          <a href="#" class="topbar-link inline-flex items-center gap-1.5" data-stub="MAX агентства"><span class="topbar-icon topbar-icon--max" aria-hidden="true"></span>MAX</a>
+        </span>
+        <a href="tel:+78362000000" class="topbar-phone" title="Номер уточняется у заказчика">+7 (8362) XX-XX-XX</a>
+      </p>
+    </div>
+  </div>
+  <header class="site-header sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur" data-header>
+  <div class="wrap wrap-wide flex h-full items-center gap-6">
+    <a href="#top" class="flex flex-none items-center gap-2.5" aria-label="Полезные люди, Союз риэлторов — на главную">
+      <img src="assets/img/brand/logo-mark.png" alt="" width="44" height="44" class="h-10 w-10 sm:h-11 sm:w-11">
+      <span class="leading-none" aria-hidden="true">
+        <span class="block whitespace-nowrap text-[17px] font-bold text-ink sm:text-[19px]">ПОЛЕЗНЫЕ ЛЮДИ</span>
+        <span class="mt-1 block text-[12.5px] text-muted">Союз риэлторов</span>
+      </span>
+    </a>
+
+    <nav class="ml-auto hidden xl:block" aria-label="Основное меню">
+      <ul class="flex items-center gap-5 whitespace-nowrap">
+        <li><a class="nav-link" href="#top" aria-current="page">Главная</a></li>
+        <li><a class="nav-link" href="/objects" data-stub="Каталог «Наши объекты»">Наши объекты</a></li>
+        <li><a class="nav-link" href="/novostroyki" data-stub="Раздел «Новостройки»">Новостройки</a></li>
+        <li><a class="nav-link" href="/doma" data-stub="Раздел «Дома»">Дома</a></li>
+        <li><a class="nav-link" href="#services">Услуги</a></li>
+        <li><a class="nav-link" href="/team" data-stub="Страница «Наша команда»">Наша команда</a></li>
+        <li><a class="nav-link" href="/blog" data-stub="Раздел «Блог»">Блог</a></li>
+        <li><a class="nav-link" href="/otzyvy" data-stub="Раздел «Отзывы»">Отзывы</a></li>
+      </ul>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2 xl:ml-4">
+      <a href="tel:+78362000000" class="hidden min-h-11 min-w-11 items-center justify-center gap-2 whitespace-nowrap px-2 text-[15px] font-semibold" data-demo-phone title="Номер уточняется у заказчика">
+        <svg class="h-4 w-4 text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg><span class="xl:sr-only">+7 (8362) <span class="text-muted">XX-XX-XX</span></span>
+      </a>
+      <a href="#consultation" class="btn btn-primary btn-sm hidden sm:inline-flex" data-intent="Консультация">Консультация</a>
+      <button type="button" class="grid h-11 w-11 place-items-center rounded-ctl xl:hidden" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="sr-only" data-menu-label>Открыть меню</span>
+        <span data-menu-icon="open"><svg class="h-6 w-6" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg></span>
+        <span data-menu-icon="close" hidden><svg class="h-6 w-6" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg></span>
+      </button>
+    </div>
+  </div>
+
+</header>
+  <div id="mobile-menu" class="mobile-menu fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white xl:hidden" hidden data-menu>
+    <nav class="wrap flex min-h-full flex-col py-6" aria-label="Мобильное меню">
+      <ul class="divide-y divide-line border-y border-line text-[18px] font-medium">
+        <li><a class="block py-4" href="#top" aria-current="page">Главная</a></li>
+        <li><a class="block py-4" href="/objects" data-stub="Каталог «Наши объекты»">Наши объекты</a></li>
+        <li><a class="block py-4" href="/novostroyki" data-stub="Раздел «Новостройки»">Новостройки</a></li>
+        <li><a class="block py-4" href="/doma" data-stub="Раздел «Дома»">Дома</a></li>
+        <li><a class="block py-4" href="#services">Услуги</a></li>
+        <li><a class="block py-4" href="/team" data-stub="Страница «Наша команда»">Наша команда</a></li>
+        <li><a class="block py-4" href="/blog" data-stub="Раздел «Блог»">Блог</a></li>
+        <li><a class="block py-4" href="/otzyvy" data-stub="Раздел «Отзывы»">Отзывы</a></li>
+      </ul>
+      <div class="mt-8 space-y-3">
+        <a href="tel:+78362000000" class="flex items-center gap-2 text-[18px] font-semibold"><svg class="h-5 w-5 text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>+7 (8362) <span class="text-muted">XX-XX-XX</span></a>
+        <p class="text-[14px] text-muted">Йошкар-Ола. Адрес офиса уточняется</p>
+        <a href="#consultation" class="btn btn-primary w-full" data-intent="Консультация">Бесплатная консультация</a>
+      </div>
+    </nav>
+  </div>
+
+
+
+  <main id="main">
+    <!-- Первый экран по макету №4: фото на всю ширину, текст слева на растворении, поиск наезжает на низ фото -->
+    <section id="top" class="hero relative bg-white pb-10 lg:pb-16" aria-labelledby="hero-title">
+  <div class="wrap wrap-wide relative z-10 lg:min-h-[640px] xl:min-h-[680px]">
+    <div class="hero-copy pb-9 pt-10 sm:pt-14 lg:max-w-[600px] lg:pb-[190px] lg:pt-20 xl:max-w-[660px]">
+      <h1 id="hero-title" class="hero-title text-display font-bold !leading-[1.15]">Покупка и продажа недвижимости <span class="hero-accent">в&nbsp;Йошкар-Оле</span></h1>
+      <p class="hero-lead mt-5 max-w-[34rem] text-[17px] leading-relaxed sm:text-[18px]">Подберём квартиру или дом, проверим документы и проведём сделку — от первой встречи до передачи ключей.</p>
+      <div class="mt-8 flex flex-col gap-3 xs:flex-row xs:gap-4">
+        <a href="#consultation" class="btn btn-primary min-h-[56px] px-8" data-intent="Покупка">Хотите купить?</a>
+        <a href="#consultation" class="btn btn-white min-h-[56px] px-8" data-intent="Продажа">Хотите продать?</a>
+      </div>
+      <p class="hero-lead mt-5 flex items-center gap-2 text-[14px]"><svg class="h-4 w-4 text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Первая консультация бесплатно</p>
+    </div>
+  </div>
+
+  <div class="hero-media relative h-[min(82vw,460px)] lg:absolute lg:bottom-[150px] lg:left-[30%] lg:right-0 lg:top-0 lg:h-auto xl:left-[34%]" data-hero-media>
+    <div class="hero-fade" aria-hidden="true"></div>
+    <!-- Вариант A: современный жилой дом (направление, которое понравилось клиенту) -->
+    <figure class="hero-variant" data-variant="house" data-sky>
+      <img src="assets/img/photos/hero-yo-1500.webp" srcset="assets/img/photos/hero-yo-900.webp 900w, assets/img/photos/hero-yo-1500.webp 1500w" sizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" alt="Новый жилой дом из светлого кирпича в Йошкар-Оле, зимний день" width="1500" height="1048" fetchpriority="high">
+      <!-- Оживление фото: облака медленно плывут. Небо вырезано маской по силуэту здания (hero-yo-sky-mask.png),
+           слои — «подложка неба» того же кадра, где здание залито цветом неба (hero-yo-sky-*.webp).
+           Слой неба медленно уплывает вправо и плавно возвращается. Только transform/opacity. -->
+      <div class="sky-flow" aria-hidden="true">
+        <img class="sky-layer" src="assets/img/photos/hero-yo-sky-1500.webp" srcset="assets/img/photos/hero-yo-sky-900.webp 900w, assets/img/photos/hero-yo-sky-1500.webp 1500w" sizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" alt="" width="1500" height="1048" decoding="async">
+      </div>
+    </figure>
+
+    <!-- Вариант B: реальная Йошкар-Ола вечером, мягкое движение окон и часы с текущим временем -->
+    <figure class="hero-variant" data-variant="city" data-city>
+      <div class="city-stage" data-city-stage>
+        <img src="assets/img/photos/hero-city-2000.webp" srcset="assets/img/photos/hero-city-1000.webp 1000w, assets/img/photos/hero-city-2000.webp 2000w" sizes="(min-width:1024px) 60vw, 100vw" alt="Набережная Йошкар-Олы вечером: кирпичное здание с часовой башней и светящимися окнами" width="2000" height="1375" loading="lazy" decoding="async">
+        <!-- Окна: текстура соседнего окна того же ряда (из этого же кадра) плавно проявляется поверх. sx/sy — откуда берём, x/y — куда кладём, в % кадра -->
+        <span class="win win--clone" style="--x:3.75;--y:64.4;--w:4.3;--h:8.9;--sx:11.4;--sy:64.6;--dur:21s;--delay:-4s"></span>
+        <span class="win win--clone" style="--x:34.5;--y:65.6;--w:4.3;--h:8.9;--sx:26.85;--sy:64.6;--dur:27s;--delay:-15s"></span>
+        <span class="win win--clone" style="--x:19.15;--y:64.6;--w:4.3;--h:8.9;--sx:34.5;--sy:65.6;--dur:31s;--delay:-9s"></span>
+        <span class="win win--clone" style="--x:26.85;--y:64.6;--w:4.3;--h:8.9;--sx:3.75;--sy:64.4;--dur:25s;--delay:-21s"></span>
+        <!-- Дальние окна башни и турели: мягкое тёплое свечение -->
+        <span class="win win--glow" style="--x:67.3;--y:36.2;--w:1.2;--h:4.6;--dur:23s;--delay:-6s"></span>
+        <span class="win win--glow" style="--x:70;--y:36.2;--w:1.2;--h:4.6;--dur:29s;--delay:-17s"></span>
+        <span class="win win--glow" style="--x:72.9;--y:45.6;--w:1.2;--h:3.9;--dur:19s;--delay:-11s"></span>
+        <span class="win win--glow" style="--x:83.9;--y:44.7;--w:1.3;--h:4.6;--dur:26s;--delay:-2s"></span>
+        <svg class="tower-clock" style="left:76.9%;top:21.7%;width:1.8%;height:10.5%" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" data-clock>
+          <ellipse cx="50" cy="50" rx="44" ry="45" fill="#f1ede4"/>
+          <g stroke="#2a2420" stroke-linecap="round" vector-effect="non-scaling-stroke">
+            <line x1="50" y1="50" x2="50" y2="26" stroke-width="2.4" vector-effect="non-scaling-stroke" data-hand="h"/>
+            <line x1="50" y1="50" x2="50" y2="14" stroke-width="1.6" vector-effect="non-scaling-stroke" data-hand="m"/>
+          </g>
+        </svg>
+      </div>
+      <figcaption class="!hidden absolute bottom-[60px] right-3 z-[2] max-w-[calc(100%-24px)] rounded-md bg-black/55 px-2 py-1 text-right text-[11px] leading-tight text-white/85 lg:bottom-auto lg:right-6 lg:top-[68px]">
+        <span class="hidden sm:inline">Йошкар-Ола, набережная Брюгге. </span>Фото: <a class="underline underline-offset-2" href="https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%B2_%D0%99%D0%BE%D1%88%D0%BA%D0%B0%D1%80-%D0%9E%D0%BB%D0%B5._%D0%A4%D0%BE%D1%82%D0%BE_1.jpg" rel="noopener" target="_blank">Alina Vozna</a>, CC BY-SA 4.0<span class="hidden sm:inline">, кадрировано</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- Поиск: без аренды. Действие ведёт в каталог (этап 2) -->
+  <div class="wrap relative z-20 -mt-12 lg:-mt-[150px]">
+    <form id="search" action="/objects" method="get" role="search" aria-labelledby="search-title" class="search-card rounded-[18px] bg-white p-5 sm:p-6 lg:px-9 lg:py-8" data-search novalidate>
+      <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+        <h2 id="search-title" class="text-[22px] font-bold tracking-[-0.01em] lg:text-[26px]">Поиск недвижимости</h2>
+        <!-- Вкладки без аренды (правка клиента №1): «Новостройки» выбирает тип «Новостройка» -->
+        <fieldset class="search-tabs flex gap-1.5" data-search-tabs>
+          <legend class="sr-only">Что ищете</legend>
+          <label><input type="radio" name="scope" value="" class="peer sr-only" checked><span>Купить</span></label>
+          <label><input type="radio" name="scope" value="new" class="peer sr-only"><span>Новостройки</span></label>
+        </fieldset>
+      </div>
+      <div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:mt-6 lg:gap-4 xl:grid-cols-[1.2fr_1.1fr_0.85fr_1fr_1fr_auto]">
+        <div class="sbox">
+          <label class="sbox-label" for="s-type">Тип недвижимости</label>
+          <select id="s-type" name="type" class="sbox-control">
+            <option value="">Любой</option>
+            <option value="flat">Квартира</option>
+            <option value="room">Комната</option>
+            <option value="new">Новостройка</option>
+            <option value="house">Дом</option>
+            <option value="land">Участок</option>
+            <option value="banya">Баня</option>
+          </select>
+        </div>
+        <div class="sbox">
+          <label class="sbox-label" for="s-district">Район</label>
+          <select id="s-district" name="district" class="sbox-control">
+            <option value="">Любой</option>
+            <option>Центр</option><option>Заречный</option><option>Сомбатхей</option><option>9-й микрорайон</option><option>Гомзово</option><option>Ширяйково</option><option>Дубки</option><option>Пригород</option>
+          </select>
+        </div>
+        <div class="sbox col-span-2 sm:col-span-1">
+          <label class="sbox-label" for="s-rooms">Комнат</label>
+          <select id="s-rooms" name="rooms" class="sbox-control">
+            <option value="">Любое</option>
+            <option value="0">Студия</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4 и больше</option>
+          </select>
+        </div>
+        <div class="sbox">
+          <label class="sbox-label" for="s-price-from">Стоимость от, ₽</label>
+          <input id="s-price-from" name="price_from" class="sbox-control" inputmode="numeric" autocomplete="off" placeholder="Любая" data-money>
+        </div>
+        <div class="sbox">
+          <label class="sbox-label" for="s-price-to">До, ₽</label>
+          <input id="s-price-to" name="price_to" class="sbox-control" inputmode="numeric" autocomplete="off" placeholder="Любая" data-money>
+        </div>
+        <button type="submit" class="btn btn-primary search-submit col-span-2 sm:col-span-1 lg:px-10"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>Найти</button>
+      </div>
+      <p class="mt-3 hidden text-[13px] font-medium text-danger" role="alert" data-search-error></p>
+      <p class="mt-4 text-[14px] text-muted">Продаёте? <a href="#consultation" class="link" data-intent="Продажа">Оценим ваш объект</a></p>
+    </form>
+  </div>
+</section>
+    <!-- Направления: правка клиента №3 — карточки с фото на тёмном фоне, «Бани» отдельно -->
+<!-- Направления (правка клиента №3): слайдер карточек в один ряд: плавный сдвиг (transform + transition), бесконечный цикл, стрелки, свайп, клавиши ← →.
+     Белая табличка с названием «пристёгнута» к низу фото. -->
+<section id="directions" class="on-dark relative bg-graphite pb-16 pt-14 lg:pb-24 lg:pt-20" aria-labelledby="dir-title">
+  <div class="wrap">
+    <div class="mb-8 flex items-end justify-between gap-6 lg:mb-10">
+      <div class="max-w-[40rem]">
+        <h2 id="dir-title" class="text-h2 font-bold">Чем мы занимаемся</h2>
+        <p class="mt-3 text-[16px] text-muted-on-dark">Выберите направление — покажем подходящие объекты и расскажем, как проходит сделка.</p>
+      </div>
+      <div class="hidden flex-none gap-2 sm:flex">
+        <button type="button" class="dslide-btn" aria-label="Предыдущие направления" aria-controls="dcards" data-dslide-prev><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button type="button" class="dslide-btn" aria-label="Следующие направления" aria-controls="dcards" data-dslide-next><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="dcards" id="dcards" data-dslider tabindex="0" aria-roledescription="карусель" aria-label="Направления">
+      <div class="dcards-track" data-dtrack>
+        <a href="/objects?type=flat" data-stub="Каталог квартир" class="dcard">
+        <span class="dcard-media"><img src="assets/img/photos/cat-apartments.webp" srcset="assets/img/photos/cat-apartments-640.webp 640w, assets/img/photos/cat-apartments.webp 1280w" sizes="(min-width:1024px) 800px, 80vw" alt="Светлая гостиная с диваном и большими окнами" loading="lazy" decoding="async"></span>
+        <span class="dcard-plate">
+          <span class="min-w-0">
+            <span class="dcard-name">Квартиры</span>
+            <span class="dcard-desc">Вторичное жильё в Йошкар-Оле</span>
+          </span>
+          <span class="dcard-go"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+        </span>
+      </a>
+        <a href="/novostroyki" data-stub="Раздел «Новостройки»" class="dcard">
+        <span class="dcard-media"><img src="assets/img/photos/cat-newbuild.webp" srcset="assets/img/photos/cat-newbuild-640.webp 640w, assets/img/photos/cat-newbuild.webp 1280w" sizes="(min-width:1024px) 400px, 80vw" alt="Современный многоэтажный дом" loading="lazy" decoding="async"></span>
+        <span class="dcard-plate">
+          <span class="min-w-0">
+            <span class="dcard-name">Новостройки</span>
+            <span class="dcard-desc">Квартиры в новых домах</span>
+          </span>
+          <span class="dcard-go"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+        </span>
+      </a>
+        <a href="/doma" data-stub="Раздел «Дома»" class="dcard">
+        <span class="dcard-media"><img src="assets/img/photos/cat-houses.webp" srcset="assets/img/photos/cat-houses-640.webp 640w, assets/img/photos/cat-houses.webp 1280w" sizes="(min-width:1024px) 400px, 80vw" alt="Частный дом в лесу" loading="lazy" decoding="async"></span>
+        <span class="dcard-plate">
+          <span class="min-w-0">
+            <span class="dcard-name">Дома и участки</span>
+            <span class="dcard-desc">Готовые дома и земля</span>
+          </span>
+          <span class="dcard-go"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+        </span>
+      </a>
+        <a href="/uslugi#izhs" data-stub="Строительство домов (ИЖС)" class="dcard">
+        <span class="dcard-media"><img src="assets/img/photos/cat-izhs.webp" srcset="assets/img/photos/cat-izhs-640.webp 640w, assets/img/photos/cat-izhs.webp 1280w" sizes="(min-width:1024px) 400px, 80vw" alt="Деревянный каркас строящегося дома" loading="lazy" decoding="async"></span>
+        <span class="dcard-plate">
+          <span class="min-w-0">
+            <span class="dcard-name">Строительство домов</span>
+            <span class="dcard-desc">Подбор подрядчика и участка</span>
+          </span>
+          <span class="dcard-go"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+        </span>
+      </a>
+        <a href="/bani" data-stub="Раздел «Бани»" class="dcard">
+        <span class="dcard-media"><img src="assets/img/photos/cat-banya.webp" srcset="assets/img/photos/cat-banya-640.webp 640w, assets/img/photos/cat-banya.webp 1280w" sizes="(min-width:1024px) 400px, 80vw" alt="Парная бани, отделанная деревом" loading="lazy" decoding="async"></span>
+        <span class="dcard-plate">
+          <span class="min-w-0">
+            <span class="dcard-name">Бани</span>
+            <span class="dcard-desc">Продажа и подбор бань</span>
+          </span>
+          <span class="dcard-go"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+        </span>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Актуальные объекты: 2 ряда по 4. В рабочей версии — ручная подборка администратора (featured + порядок), без случайной выдачи -->
+<section id="objects" class="py-16 lg:py-24" aria-labelledby="obj-title">
+  <div class="wrap">
+    <div class="mb-7 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
+      <div>
+        <h2 id="obj-title" class="text-h2 font-bold">Актуальные объекты</h2>
+        <p class="mt-3 flex flex-wrap items-center gap-2 text-[15px] text-muted">
+          Подборку на главной составляют специалисты офиса.
+        </p>
+      </div>
+      <a href="/objects" class="link hidden text-[15px] sm:inline" data-stub="Каталог «Наши объекты»">Все объекты в каталоге</a>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 [&>*:nth-child(n+5)]:max-sm:hidden" data-objects>
+      
+<!-- Галерея в карточке (как на Авито): ведите курсором по фото — фото меняются по зонам, полоски внизу показывают номер.
+     PLACEHOLDER: дополнительные фото — другие демо-объекты; в рабочей версии все фото объекта придут из CRM. -->
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-1-640.webp" srcset="assets/img/photos/obj-1-640.webp 640w, assets/img/photos/obj-1.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Светлая кухня с белыми шкафами и барной стойкой" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-2-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-3-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-4-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Квартира</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">5 900 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-101" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">2-комнатная квартира</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>2-комн.</span><span>58 м²</span><span>5/9 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, ул. Красноармейская</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-4-640.webp" srcset="assets/img/photos/obj-4-640.webp 640w, assets/img/photos/obj-4.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Многоэтажный жилой дом на фоне неба" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-5-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-6-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-7-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Новостройка</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">6 700 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-102" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">2-комнатная квартира в новом доме</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>2-комн.</span><span>61 м²</span><span>12/17 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, Заречный район</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-5-640.webp" srcset="assets/img/photos/obj-5-640.webp 640w, assets/img/photos/obj-5.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Двухэтажный частный дом среди деревьев" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-6-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-7-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-8-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Дом</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">9 800 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-103" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">Дом с участком</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>142 м²</span><span>участок 9 сот.</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, пгт Медведево</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-2-640.webp" srcset="assets/img/photos/obj-2-640.webp 640w, assets/img/photos/obj-2.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Спальня с большим окном и утренним светом" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-3-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-4-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-5-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Квартира</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">3 850 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-104" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">1-комнатная квартира</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>1-комн.</span><span>38 м²</span><span>3/10 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, мкр. Сомбатхей</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-3-640.webp" srcset="assets/img/photos/obj-3-640.webp 640w, assets/img/photos/obj-3.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Гостиная с панорамными окнами и обеденным столом" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-4-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-5-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-6-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Квартира</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">7 450 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-105" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">3-комнатная квартира</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>3-комн.</span><span>76 м²</span><span>2/5 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, бульвар Чавайна</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-8-640.webp" srcset="assets/img/photos/obj-8-640.webp 640w, assets/img/photos/obj-8.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Белый современный жилой дом с балконами" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-1-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-2-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-3-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Новостройка</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">3 200 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-106" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">Квартира-студия</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>студия</span><span>27 м²</span><span>8/16 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, 9-й микрорайон</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-6-640.webp" srcset="assets/img/photos/obj-6-640.webp 640w, assets/img/photos/obj-6.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Небольшая спальня с кроватью у окна" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-7-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-8-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-1-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Комната</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">1 650 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-107" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">Комната в 3-комнатной квартире</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>комната</span><span>18 м²</span><span>4/9 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, ул. Строителей</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-7-640.webp" srcset="assets/img/photos/obj-7-640.webp 640w, assets/img/photos/obj-7.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Кухня в бело-голубых тонах" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-8-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-1-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-2-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Квартира</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">4 100 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-108" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">2-комнатная квартира</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>2-комн.</span><span>47 м²</span><span>1/5 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, Ленинский проспект</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-1-640.webp" srcset="assets/img/photos/obj-1-640.webp 640w, assets/img/photos/obj-1.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Светлая кухня с белыми шкафами и барной стойкой" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-2-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-3-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-4-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Квартира</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">5 200 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-109" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">2-комнатная квартира</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>2-комн.</span><span>54 м²</span><span>3/9 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, ул. Эшкинина</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-5-640.webp" srcset="assets/img/photos/obj-5-640.webp 640w, assets/img/photos/obj-5.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Двухэтажный частный дом среди деревьев" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-6-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-7-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-8-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Дом</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">8 900 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-110" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">Дом с участком</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>120 м²</span><span>6 соток</span><span>2 этажа</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, Сомбатхей</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-2-640.webp" srcset="assets/img/photos/obj-2-640.webp 640w, assets/img/photos/obj-2.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Спальня с большим окном и утренним светом" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-3-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-4-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-5-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Квартира</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">3 650 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-111" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">1-комнатная квартира</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>1-комн.</span><span>36 м²</span><span>4/9 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, ул. Волкова</span></p>
+  </div>
+</article>
+<article class="obj-card group relative flex flex-col overflow-hidden rounded-tile bg-white">
+  <div class="obj-media relative aspect-[4/3] overflow-hidden bg-line" data-gallery>
+    <img src="assets/img/photos/obj-8-640.webp" srcset="assets/img/photos/obj-8-640.webp 640w, assets/img/photos/obj-8.webp 1280w" sizes="(min-width:1280px) 290px, (min-width:768px) 45vw, 90vw" alt="Белый современный жилой дом с балконами" data-g="0" class="h-full w-full object-cover is-on" loading="lazy" decoding="async" width="640" height="427">
+    <img data-g="1" src="assets/img/photos/obj-1-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="2" src="assets/img/photos/obj-2-640.webp" alt="" loading="lazy" decoding="async">
+    <img data-g="3" src="assets/img/photos/obj-3-640.webp" alt="" loading="lazy" decoding="async">
+    <span class="obj-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-1 text-[12px] font-semibold text-ink">Новостройка</span>
+  </div>
+  <div class="flex flex-1 flex-col p-4 pb-5">
+    <p class="price text-[21px] font-bold tracking-[-0.01em]">7 100 000 ₽</p>
+    <h3 class="mt-1 text-[15px] font-medium leading-snug">
+      <a href="/objects/demo-112" data-stub="Карточка объекта" class="obj-link focus-visible:outline-none">3-комнатная квартира</a>
+    </h3>
+    <p class="mt-1 flex flex-wrap gap-x-3 text-[14px] text-muted">
+      <span>3-комн.</span><span>72 м²</span><span>8/17 этаж</span>
+    </p>
+    <p class="mt-3 flex items-start gap-1.5 text-[14px] text-ink"><svg class="mt-[3px] h-4 w-4 flex-none text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Йошкар-Ола, Заречный район</span></p>
+  </div>
+</article>
+    </div>
+
+    <div class="mt-6 flex flex-col gap-3 sm:hidden">
+      <button type="button" class="btn btn-outline" aria-expanded="false" data-objects-more>Показать ещё 8 объектов</button>
+    </div>
+    <div class="mt-10 hidden justify-center sm:flex">
+      <a href="/objects" class="btn btn-dark" data-stub="Каталог «Наши объекты»">Смотреть все объекты</a>
+    </div>
+  </div>
+</section>
+
+    <!-- Преимущества: те же иконки, что понравились директору, на тёмной карточке (как форма консультации), перед блоком команды (правка №4) -->
+<section class="bg-paper pb-14 lg:-mt-6 lg:pb-16" aria-label="Почему с нами спокойно">
+  <div class="wrap wrap-wide">
+    <ul class="on-dark trust-row trust-dark grid gap-6 sm:grid-cols-2 sm:gap-x-10 xl:grid-cols-[1.2fr_1fr_1fr_1fr] xl:gap-0">
+      <li class="trust-item flex items-center gap-4">
+        <svg class="h-9 w-9 flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>
+        <p class="text-[14px] leading-snug text-white">Безопасные сделки<br>и юридическое сопровождение</p>
+      </li>
+      <li class="trust-item flex items-center gap-4">
+        <svg class="h-9 w-9 flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+        <p class="text-[14px] leading-snug text-white">Опытные риэлторы<br>и эксперты рынка</p>
+      </li>
+      <li class="trust-item flex items-center gap-4">
+        <svg class="h-9 w-9 flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg>
+        <p class="text-[14px] leading-snug text-white">Индивидуальный<br>подход к каждому клиенту</p>
+      </li>
+      <li class="trust-item flex items-center gap-4">
+        <svg class="h-9 w-9 flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 17V9" /><path d="M18 17V5" /><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="M8 17v-3" /></svg>
+        <p class="text-[14px] leading-snug text-white">Реальные решения<br>и понятные условия</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+    <!-- О нас: правка клиента №5 — карусель фото (как обложка VK) и выбор агента вместо федеральной статистики -->
+<!-- О нас: по образцу заказчика — баннер (текст на светлой части фото, фото скруглено справа) + панель справа.
+     Справа вместо федеральных цифр (60+/3000+/100%) — выбор специалиста: правка клиента №5.
+     PLACEHOLDER: иллюстративное фото (предоставлено в работу), не сотрудники офиса — заменить на реальное фото команды. -->
+<section id="about" class="bg-white py-14 lg:py-16" aria-labelledby="about-title">
+  <div class="wrap wrap-wide about3">
+    <div class="about3-banner">
+      <!-- Карусель фото команды: смена каждые 2,5 с (плавная). Пауза — кнопка (WCAG 2.2.2), при наведении и вне экрана;
+           при prefers-reduced-motion не листается сама. PLACEHOLDER: иллюстративные фото, не сотрудники офиса. -->
+      <figure class="about3-photo" data-about-slides aria-roledescription="карусель" aria-label="Фото команды">
+        <img class="about3-slide is-on" src="assets/img/photos/about-team-wide-1672.webp" srcset="assets/img/photos/about-team-wide-900.webp 900w, assets/img/photos/about-team-wide-1672.webp 1672w" sizes="(min-width:1280px) 1000px, 100vw" alt="Трое специалистов в светлом офисе агентства" width="1672" height="941" decoding="async">
+        <img class="about3-slide" src="assets/img/photos/about-slide-1-1672.webp" srcset="assets/img/photos/about-slide-1-900.webp 900w, assets/img/photos/about-slide-1-1672.webp 1672w" sizes="(min-width:1280px) 1000px, 100vw" alt="Специалисты агентства в офисе" width="1672" height="717" loading="lazy" decoding="async" aria-hidden="true">
+        <img class="about3-slide" src="assets/img/photos/about-slide-2-1672.webp" srcset="assets/img/photos/about-slide-2-900.webp 900w, assets/img/photos/about-slide-2-1672.webp 1672w" sizes="(min-width:1280px) 1000px, 100vw" alt="Специалисты обсуждают объект с планшетом" width="1672" height="717" loading="lazy" decoding="async" aria-hidden="true">
+        <img class="about3-slide" src="assets/img/photos/about-slide-3-1672.webp" srcset="assets/img/photos/about-slide-3-900.webp 900w, assets/img/photos/about-slide-3-1672.webp 1672w" sizes="(min-width:1280px) 1000px, 100vw" alt="Команда агентства в офисе" width="1672" height="717" loading="lazy" decoding="async" aria-hidden="true">
+        <span class="about3-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </figure>
+      <div class="about3-copy">
+        <p class="text-[15px] font-semibold text-brand-ink">О нас</p>
+        <h2 id="about-title" class="mt-3 text-[30px] font-bold leading-[1.12] tracking-[-0.02em] sm:text-[34px] xl:text-[36px]">«Полезные люди»&nbsp;— ваш надёжный партнёр на&nbsp;рынке недвижимости</h2>
+        <p class="mt-4 text-[16px] leading-relaxed text-muted">Мы — команда специалистов в Йошкар-Оле: помогаем купить, продать и оформить недвижимость — от подбора квартиры до полного сопровождения сделки.</p>
+        <a href="/about" class="btn btn-primary mt-7" data-stub="Страница «Об агентстве»">Подробнее об агентстве</a>
+      </div>
+    </div>
+
+    <aside class="about-panel" aria-labelledby="agent-title">
+      <h3 id="agent-title" class="text-[22px] font-bold leading-tight">Выберите своего специалиста</h3>
+      <ul class="about-points mt-5">
+        <li><span class="about-point-t">Опыт и специализация</span><span class="about-point-d">кто ведёт квартиры, дома, новостройки</span></li>
+        <li><span class="about-point-t">Отзывы клиентов</span><span class="about-point-d">о сделках с каждым риэлтором</span></li>
+        <li><span class="about-point-t">Объекты в работе</span><span class="about-point-d">что специалист продаёт сейчас</span></li>
+      </ul>
+      <div class="mt-6 flex flex-col gap-3">
+        <a href="/team#agents" class="btn btn-primary" data-stub="Выбор агента">Выбрать агента</a>
+        <a href="/team" class="btn btn-dark" data-stub="Страница «Наша команда»">Наша команда</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+    <!-- Услуги: карточки «иконка → название → стрелка» (по образцу заказчика). Иконки — Lucide. Без аренды (правка №1) -->
+<section id="services" class="py-14 lg:py-16" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="mb-6 flex items-end justify-between gap-6">
+      <h2 id="svc-title" class="text-h2 font-bold">Наши услуги</h2>
+      <a href="/uslugi" class="svc-all" data-stub="Раздел «Услуги»">Все услуги<svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
+    </div>
+    <ul class="svc-cards">
+      <li><a class="svc-card" href="#consultation" data-intent="Покупка">
+        <img class="svc-card-icon" src="assets/img/icons3d/buy.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="svc-card-text"><b>Покупка</b><span>недвижимости</span></span>
+        <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
+      </a></li>
+      <li><a class="svc-card" href="#consultation" data-intent="Продажа">
+        <img class="svc-card-icon" src="assets/img/icons3d/sell.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="svc-card-text"><b>Продажа</b><span>недвижимости</span></span>
+        <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
+      </a></li>
+      <li><a class="svc-card" href="/uslugi#mortgage" data-stub="Раздел «Услуги»">
+        <img class="svc-card-icon" src="assets/img/icons3d/mortgage.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="svc-card-text"><b>Ипотека</b><span>и кредитование</span></span>
+        <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
+      </a></li>
+      <li><a class="svc-card" href="/uslugi#legal" data-stub="Раздел «Услуги»">
+        <img class="svc-card-icon" src="assets/img/icons3d/legal.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="svc-card-text"><b>Юридическое</b><span>сопровождение</span></span>
+        <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
+      </a></li>
+      <li><a class="svc-card" href="/uslugi#insurance" data-stub="Раздел «Услуги»">
+        <img class="svc-card-icon" src="assets/img/icons3d/insurance.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="svc-card-text"><b>Страхование</b><span>сделки и объекта</span></span>
+        <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
+    <!-- Бесплатная консультация (ТЗ, п. 8.3). Заявка хранит тип обращения и страницу-источник -->
+<!-- Консультация перед подвалом: баннер по образцу заказчика — фото | текст | форма | что вы получите -->
+<section id="consultation" class="pb-16 lg:pb-20" aria-labelledby="cons-title">
+  <div class="wrap wrap-wide">
+    <div class="on-dark cta">
+      <img class="cta-photo" src="assets/img/photos/cta-building-900.webp" srcset="assets/img/photos/cta-building-480.webp 480w, assets/img/photos/cta-building-900.webp 900w" sizes="(min-width:1024px) 260px, 100vw" alt="" width="900" height="675" loading="lazy" decoding="async">
+      <div class="cta-copy">
+        <p class="text-[13px] font-semibold text-brand-on-dark">Бесплатная консультация</p>
+        <h2 id="cons-title" class="mt-2 text-[26px] font-bold leading-[1.15] tracking-[-0.015em] lg:text-[28px]">Остались вопросы?<br>Мы&nbsp;поможем!</h2>
+        <p class="mt-3 text-[14.5px] leading-relaxed text-muted-on-dark">Расскажите о своей ситуации, и наш специалист подберёт оптимальное решение.</p>
+      </div>
+      <div class="cta-form">
+        <form class="grid gap-3" novalidate data-lead-form="consultation">
+          <input type="hidden" name="source" value="Главная — блок консультации">
+          <input type="hidden" name="intent" value="Консультация" data-intent-field>
+          <div>
+            <label class="sr-only" for="c-name">Ваше имя</label>
+            <input placeholder="Ваше имя" id="c-name" name="name" class="cta-input" autocomplete="given-name" required data-msg="Укажите, как к вам обращаться" aria-describedby="c-name-err">
+            <p id="c-name-err" class="field-error" aria-live="polite" hidden></p>
+          </div>
+          <div>
+            <label class="sr-only" for="c-phone">Телефон</label>
+            <input id="c-phone" name="phone" class="cta-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Телефон" required data-phone data-msg="Введите номер полностью: 10 цифр после +7" aria-describedby="c-phone-err">
+            <p id="c-phone-err" class="field-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="hidden" aria-hidden="true"><label>Не заполняйте это поле <input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit" class="btn btn-primary w-full">Получить консультацию</button>
+          <div class="cta-consent">
+            <label class="check text-muted-on-dark">
+              <input type="checkbox" name="consent" required data-msg="Нужно согласие на обработку персональных данных" aria-describedby="c-consent-err">
+              <span>Согласен на <a href="/privacy" class="underline underline-offset-2 hover:text-white" data-stub="Согласие на обработку персональных данных">обработку персональных данных</a> и принимаю <a href="/policy" class="underline underline-offset-2 hover:text-white" data-stub="Политика конфиденциальности">политику конфиденциальности</a></span>
+            </label>
+            <p id="c-consent-err" class="field-error" aria-live="polite" hidden></p>
+          </div>
+        </form>
+        <div class="hidden" role="status" tabindex="-1" data-lead-success>
+          <p class="text-h3 font-bold">Заявка принята</p>
+          <p class="mt-2 text-[15px] text-muted-on-dark">Специалист перезвонит в рабочее время и уточнит детали. Тема: <b class="font-semibold text-white" data-lead-intent></b>.</p>
+          <button type="button" class="link mt-5 text-brand-on-dark" data-lead-reset>Отправить ещё одну заявку</button>
+        </div>
+      </div>
+      <ul class="cta-points"><li class="flex items-center gap-3"><svg class="h-[18px] w-[18px] flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Разберём вашу задачу</li><li class="flex items-center gap-3"><svg class="h-[18px] w-[18px] flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Подберём лучшие варианты</li><li class="flex items-center gap-3"><svg class="h-[18px] w-[18px] flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Расскажем о всех условиях</li></ul>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="on-dark bg-graphite pb-10 pt-14 text-[15px] lg:pt-16">
+  <div class="wrap">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
+      <div>
+        <p class="flex items-center gap-3">
+          <img src="assets/img/brand/logo-mark.png" alt="" width="48" height="48" class="h-12 w-12" loading="lazy">
+          <span class="leading-none">
+            <span class="block text-[20px] font-bold text-white">ПОЛЕЗНЫЕ ЛЮДИ</span>
+            <span class="mt-1 block text-[13px] text-muted-on-dark">Союз риэлторов</span>
+          </span>
+        </p>
+        <p class="mt-5 max-w-[22rem] text-muted-on-dark">Агентство недвижимости в Йошкар-Оле. Покупка, продажа и сопровождение сделок.</p>
+        <div class="mt-6 grid justify-start gap-2.5 min-[400px]:grid-flow-col min-[400px]:grid-rows-2">
+          <a href="https://vk.ru/polezno_12" target="_blank" rel="noopener" class="inline-flex items-center gap-2 whitespace-nowrap rounded-ctl border border-line-on-dark px-4 py-2.5 font-medium hover:border-brand-on-dark">
+            Группа ВКонтакте<svg class="h-4 w-4 text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </a>
+          <!-- PLACEHOLDER: адреса Telegram и MAX заказчик не сообщил — заглушки; заменить href и убрать data-stub -->
+          <a href="#" data-stub="Telegram агентства" class="inline-flex items-center gap-2 whitespace-nowrap rounded-ctl border border-line-on-dark px-4 py-2.5 font-medium hover:border-brand-on-dark">
+            Канал в Telegram<svg class="h-4 w-4 text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </a>
+          <a href="#" data-stub="MAX агентства" class="inline-flex items-center gap-2 whitespace-nowrap rounded-ctl border border-line-on-dark px-4 py-2.5 font-medium hover:border-brand-on-dark">
+            Канал в MAX<svg class="h-4 w-4 text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Разделы сайта">
+        <h2 class="text-[13px] font-medium text-muted-on-dark">Разделы</h2>
+        <ul class="mt-4 space-y-2.5">
+          <li><a class="hover:text-brand-on-dark" href="/objects" data-stub="Каталог «Наши объекты»">Наши объекты</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/novostroyki" data-stub="Раздел «Новостройки»">Новостройки</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/doma" data-stub="Раздел «Дома»">Дома</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/team" data-stub="Страница «Наша команда»">Наша команда</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/blog" data-stub="Раздел «Блог»">Блог</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/otzyvy" data-stub="Раздел «Отзывы»">Отзывы</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Услуги">
+        <h2 class="text-[13px] font-medium text-muted-on-dark">Услуги</h2>
+        <ul class="mt-4 space-y-2.5">
+          <li><a class="hover:text-brand-on-dark" href="/uslugi#buy" data-stub="Раздел «Услуги»">Покупка</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/uslugi#sell" data-stub="Раздел «Услуги»">Продажа</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/uslugi#mortgage" data-stub="Раздел «Услуги»">Ипотека</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/uslugi#insurance" data-stub="Раздел «Услуги»">Страхование</a></li>
+          <li><a class="hover:text-brand-on-dark" href="/uslugi#legal" data-stub="Раздел «Услуги»">Экспресс-проверка</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="text-[13px] font-medium text-muted-on-dark">Контакты</h2>
+        <ul class="mt-4 space-y-3">
+          <li><a href="tel:+78362000000" class="text-[18px] font-semibold hover:text-brand-on-dark">+7 (8362) <span class="text-muted-on-dark">XX-XX-XX</span></a></li>
+          <li class="text-muted-on-dark">Йошкар-Ола, адрес офиса уточняется</li>
+          <li class="text-muted-on-dark">Пн–Пт 9:00–19:00, Сб 10:00–16:00<!-- PLACEHOLDER: демо-часы, как в верхней полосе --></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-4 border-t border-line-on-dark pt-6 text-[13px] text-muted-on-dark md:flex-row md:items-center md:justify-between">
+      <p>© 2026 «Полезные люди» — Йошкар-Ола</p>
+      <ul class="flex flex-wrap gap-x-6 gap-y-2">
+        <li><a class="underline-offset-4 hover:text-white hover:underline" href="/policy" data-stub="Политика конфиденциальности">Политика конфиденциальности</a></li>
+        <li><a class="underline-offset-4 hover:text-white hover:underline" href="/privacy" data-stub="Согласие на обработку персональных данных">Обработка персональных данных</a></li>
+        <li><a class="underline-offset-4 hover:text-white hover:underline" href="assets/img/photos/credits.json" target="_blank">Источники фото</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <!-- Правка клиента №2: круглая плавающая кнопка обратного звонка (механика по мотивам Envybox, свой компонент) -->
+<!-- Уведомление о cookie (по образцу Домклик): снизу по центру, до нажатия «Принять»; выбор запоминается в браузере -->
+<div class="cookie-bar" role="region" aria-label="Уведомление о cookie" hidden data-cookie>
+  <p>Используя сайт, <a href="/cookies" data-stub="Политика использования cookie">вы соглашаетесь на обработку файлов cookie</a>, которые улучшают работу сервиса.</p>
+  <button type="button" class="cookie-bar-btn" data-cookie-accept>Принять</button>
+</div>
+
+<!-- Подсказка «Есть вопрос?» слева снизу: появляется через 12 с один раз за сессию; «Оставьте телефон» открывает окно обратного звонка -->
+<aside class="ask-toast" role="complementary" aria-labelledby="ask-title" hidden data-ask-toast>
+  <button type="button" class="ask-toast-close" aria-label="Закрыть подсказку" data-ask-close><svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <p id="ask-title" class="text-[19px] font-bold leading-tight">Есть вопрос?</p>
+  <p class="mt-2 text-[14.5px] text-white/90">Мы перезвоним вам в течение нескольких минут</p>
+  <button type="button" class="ask-toast-btn" aria-haspopup="dialog" aria-controls="callback" data-ask-open><svg class="h-[18px] w-[18px] flex-none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Оставьте телефон</button>
+</aside>
+
+<!-- Плавающая кнопка: по клику раскрывает способы связи. PLACEHOLDER: Telegram и MAX — заглушки до получения аккаунтов -->
+<div class="fab-wrap" data-fab>
+  <ul class="fab-menu" id="fab-menu" data-fab-menu hidden>
+    <li><a class="fab-item" href="https://vk.ru/polezno_12" target="_blank" rel="noopener"><span class="fab-item-label">ВКонтакте</span><span class="fab-item-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></span></a></li>
+    <li><a class="fab-item" href="#" data-stub="Telegram агентства"><span class="fab-item-label">Telegram</span><span class="fab-item-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span></a></li>
+    <li><a class="fab-item" href="#" data-stub="MAX агентства"><span class="fab-item-label">MAX</span><span class="fab-item-icon"><span class="fab-max" aria-hidden="true"></span></span></a></li>
+    <li><button type="button" class="fab-item" aria-haspopup="dialog" aria-controls="callback" data-fab-callback><span class="fab-item-label">Обратный звонок</span><span class="fab-item-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></button></li>
+  </ul>
+  <button type="button" class="fab" aria-expanded="false" aria-controls="fab-menu" data-fab-toggle>
+    <svg class="fab-phone" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <svg class="fab-close" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <span class="sr-only" data-fab-label>Связаться с нами</span>
+  </button>
+</div>
+
+<!-- Премиальная модалка заявки: открывают все кнопки с data-intent («Хотите купить/продать», «Консультация», карточки услуг).
+     Слева — фото и что получит клиент, справа — форма. Тема подставляется из кнопки. -->
+<dialog id="lead" class="lead-modal" aria-labelledby="lead-title" data-lead-modal>
+  <div class="lead-modal-inner">
+    <aside class="lead-modal-aside on-dark" aria-hidden="true">
+      <img src="assets/img/photos/cta-building-900.webp" alt="" width="900" height="675" loading="lazy" decoding="async">
+      <div class="lead-modal-aside-text">
+        <p class="text-[13px] font-semibold text-brand-on-dark">Бесплатная консультация</p>
+        <ul class="mt-4 grid gap-3 text-[15px]">
+          <li class="flex items-center gap-3"><svg class="h-[18px] w-[18px] flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Перезвоним в рабочее время</li>
+          <li class="flex items-center gap-3"><svg class="h-[18px] w-[18px] flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Разберём вашу задачу</li>
+          <li class="flex items-center gap-3"><svg class="h-[18px] w-[18px] flex-none text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Подскажем порядок сделки</li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="lead-modal-body">
+      <button type="button" class="lead-modal-close" data-dialog-close aria-label="Закрыть"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      <form class="grid gap-4" novalidate data-lead-form="modal">
+        <input type="hidden" name="source" value="Главная — модальное окно заявки">
+        <div>
+          <h2 id="lead-title" class="text-[26px] font-bold leading-tight tracking-[-0.015em]" data-lead-title>Оставьте заявку</h2>
+          <p class="mt-2 text-[15px] text-muted">Специалист перезвонит, уточнит задачу и предложит порядок действий.</p>
+        </div>
+        <fieldset>
+          <legend class="sr-only">Что вас интересует</legend>
+          <div class="lead-seg"><label><input type="radio" name="intent" value="Покупка" class="peer sr-only" checked><span>Купить</span></label><label><input type="radio" name="intent" value="Продажа" class="peer sr-only"><span>Продать</span></label><label><input type="radio" name="intent" value="Консультация" class="peer sr-only"><span>Консультация</span></label></div>
+        </fieldset>
+        <div>
+          <label class="field-label" for="m-name">Имя</label>
+          <input id="m-name" name="name" class="control" autocomplete="given-name" required data-msg="Укажите, как к вам обращаться" aria-describedby="m-name-err">
+          <p id="m-name-err" class="field-error" aria-live="polite" hidden></p>
+        </div>
+        <div>
+          <label class="field-label" for="m-phone">Телефон</label>
+          <input id="m-phone" name="phone" class="control" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required data-phone data-msg="Введите номер полностью: 10 цифр после +7" aria-describedby="m-phone-err">
+          <p id="m-phone-err" class="field-error" aria-live="polite" hidden></p>
+        </div>
+        <div class="hidden" aria-hidden="true"><label>Не заполняйте это поле <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div>
+          <label class="check text-muted">
+            <input type="checkbox" name="consent" required data-msg="Нужно согласие на обработку персональных данных" aria-describedby="m-consent-err">
+            <span>Согласен на <a href="/privacy" class="link" data-stub="Согласие на обработку персональных данных">обработку персональных данных</a> и принимаю <a href="/policy" class="link" data-stub="Политика конфиденциальности">политику конфиденциальности</a></span>
+          </label>
+          <p id="m-consent-err" class="field-error" aria-live="polite" hidden></p>
+        </div>
+        <button type="submit" class="btn btn-primary w-full min-h-[54px]">Отправить заявку</button>
+      </form>
+      <div class="hidden py-6" role="status" tabindex="-1" data-lead-success>
+        <p class="text-[26px] font-bold leading-tight">Заявка принята</p>
+        <p class="mt-3 text-[15px] text-muted">Специалист перезвонит в рабочее время. Тема: <b class="font-semibold text-ink" data-lead-intent></b>.</p>
+        <button type="button" class="btn btn-dark mt-6" data-dialog-close>Готово</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="callback" class="sheet sheet--corner" aria-labelledby="cb-title" data-callback>
+  <div class="p-6 sm:p-7">
+    <div class="flex items-start justify-between gap-4">
+      <h2 id="cb-title" class="text-[22px] font-bold leading-tight tracking-[-0.01em]">Перезвоним вам</h2>
+      <button type="button" class="-mr-2 -mt-2 grid h-11 w-11 flex-none place-items-center rounded-full hover:bg-paper" data-dialog-close aria-label="Закрыть"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg></button>
+    </div>
+    <form class="mt-2 space-y-4" novalidate data-lead-form="callback">
+      <p class="text-[15px] text-muted">Оставьте номер — специалист офиса позвонит в рабочее время.</p>
+      <input type="hidden" name="intent" value="Обратный звонок">
+      <input type="hidden" name="source" value="Главная — плавающая кнопка">
+      <div>
+        <label class="field-label" for="cb-phone">Телефон</label>
+        <input id="cb-phone" name="phone" class="control" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required data-phone data-msg="Введите номер полностью: 10 цифр после +7" aria-describedby="cb-phone-err">
+        <p id="cb-phone-err" class="field-error" aria-live="polite" hidden></p>
+      </div>
+      <div>
+        <label class="field-label" for="cb-name">Имя <span class="font-normal">(необязательно)</span></label>
+        <input id="cb-name" name="name" class="control" autocomplete="given-name">
+      </div>
+      <div class="hidden" aria-hidden="true"><label>Не заполняйте это поле <input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div>
+        <label class="check text-muted">
+          <input type="checkbox" name="consent" required data-msg="Нужно согласие на обработку персональных данных" aria-describedby="cb-consent-err">
+          <span>Согласен на <a href="/privacy" class="underline underline-offset-2" data-stub="Согласие на обработку персональных данных">обработку персональных данных</a></span>
+        </label>
+        <p id="cb-consent-err" class="field-error" aria-live="polite" hidden></p>
+      </div>
+      <button type="submit" class="btn btn-primary w-full">Жду звонка</button>
+    </form>
+    <div class="hidden pt-2" role="status" tabindex="-1" data-lead-success>
+      <p class="text-[17px] font-semibold">Заявка принята</p>
+      <p class="mt-1 text-[15px] text-muted">Перезвоним в рабочее время. Тема: <b class="font-semibold text-ink" data-lead-intent></b>.</p>
+      <button type="button" class="btn btn-outline mt-5 w-full" data-dialog-close>Закрыть</button>
+    </div>
+  </div>
+</dialog>
+
+  <!-- Честная заглушка для разделов следующих этапов: на демо-стенде вместо битых ссылок -->
+<dialog id="stub" class="sheet" aria-labelledby="stub-title" data-stub-dialog>
+  <div class="p-6 sm:p-7">
+    <h2 id="stub-title" class="text-[22px] font-bold leading-tight tracking-[-0.01em]" data-stub-title>Раздел</h2>
+    <p class="mt-3 text-[15px] text-muted" data-stub-text>Этот раздел появится на следующих этапах. Сейчас на согласовании только главная страница.</p>
+    <button type="button" class="btn btn-primary mt-6 w-full" data-dialog-close>Понятно</button>
+  </div>
+</dialog>
+
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
