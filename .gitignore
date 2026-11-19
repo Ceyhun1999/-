@@ -3,3 +3,6 @@ dist/
 .artifacts/
 .DS_Store
 brand-source/
+
+# служебные файлы скилла clone-ui
+.clone-ui/

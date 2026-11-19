@@ -12,8 +12,8 @@
   <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="preload" as="image" href="assets/img/photos/hero-yo-1500.webp" imagesrcset="assets/img/photos/hero-yo-900.webp 900w, assets/img/photos/hero-yo-1500.webp 1500w" imagesizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap">
+  <link rel="preload" as="image" href="assets/img/photos/hero-yo3-1500.webp" imagesrcset="assets/img/photos/hero-yo3-900.webp 900w, assets/img/photos/hero-yo3-1500.webp 1500w" imagesizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/app.css">
   <script>
     // Вариант hero: по умолчанию дом, вечерний город — только по ссылке ?hero=city
@@ -43,8 +43,6 @@
       <p class="flex flex-none items-center gap-x-7">
         <span class="hidden items-center gap-4 md:flex">
           <a href="https://vk.ru/polezno_12" target="_blank" rel="noopener" class="topbar-link hidden items-center gap-1.5 lg:inline-flex"><svg class="topbar-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>ВКонтакте</a>
-          <!-- PLACEHOLDER: адрес Telegram заказчик не сообщил — пока заглушка; заменить href на https://t.me/<аккаунт> и убрать data-stub -->
-          <a href="#" class="topbar-link inline-flex items-center gap-1.5" data-stub="Telegram агентства"><svg class="topbar-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</a>
           <!-- PLACEHOLDER: аккаунт MAX заказчик не сообщил — заглушка. Значок — логотип MAX (maxicons.ru, исходник в brand-source/) -->
           <a href="#" class="topbar-link inline-flex items-center gap-1.5" data-stub="MAX агентства"><span class="topbar-icon topbar-icon--max" aria-hidden="true"></span>MAX</a>
         </span>
@@ -54,12 +52,8 @@
   </div>
   <header class="site-header sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur" data-header>
   <div class="wrap wrap-wide flex h-full items-center gap-6">
-    <a href="#top" class="flex flex-none items-center gap-2.5" aria-label="Полезные люди, Союз риэлторов — на главную">
-      <img src="assets/img/brand/logo-mark.png" alt="" width="44" height="44" class="h-10 w-10 sm:h-11 sm:w-11">
-      <span class="leading-none" aria-hidden="true">
-        <span class="block whitespace-nowrap text-[17px] font-bold text-ink sm:text-[19px]">ПОЛЕЗНЫЕ ЛЮДИ</span>
-        <span class="mt-1 block text-[12.5px] text-muted">Союз риэлторов</span>
-      </span>
+    <a href="#top" class="flex flex-none items-center" aria-label="Полезные люди, Союз риэлторов — на главную">
+      <img src="assets/img/brand/logo-horizontal.png" alt="Полезные люди, Союз риэлторов" width="840" height="181" class="h-[44px] w-auto sm:h-[50px]">
     </a>
 
     <nav class="ml-auto hidden xl:block" aria-label="Основное меню">
@@ -68,10 +62,10 @@
         <li><a class="nav-link" href="/objects" data-stub="Каталог «Наши объекты»">Наши объекты</a></li>
         <li><a class="nav-link" href="/novostroyki" data-stub="Раздел «Новостройки»">Новостройки</a></li>
         <li><a class="nav-link" href="/doma" data-stub="Раздел «Дома»">Дома</a></li>
-        <li><a class="nav-link" href="#services">Услуги</a></li>
-        <li><a class="nav-link" href="/team" data-stub="Страница «Наша команда»">Наша команда</a></li>
-        <li><a class="nav-link" href="/blog" data-stub="Раздел «Блог»">Блог</a></li>
-        <li><a class="nav-link" href="/otzyvy" data-stub="Раздел «Отзывы»">Отзывы</a></li>
+        <li><a class="nav-link" href="services.html">Услуги</a></li>
+        <li><a class="nav-link" href="team.html">Наша команда</a></li>
+        <li><a class="nav-link" href="blog.html">Блог</a></li>
+        <li><a class="nav-link" href="reviews.html">Отзывы</a></li>
       </ul>
     </nav>
 
@@ -96,10 +90,10 @@
         <li><a class="block py-4" href="/objects" data-stub="Каталог «Наши объекты»">Наши объекты</a></li>
         <li><a class="block py-4" href="/novostroyki" data-stub="Раздел «Новостройки»">Новостройки</a></li>
         <li><a class="block py-4" href="/doma" data-stub="Раздел «Дома»">Дома</a></li>
-        <li><a class="block py-4" href="#services">Услуги</a></li>
-        <li><a class="block py-4" href="/team" data-stub="Страница «Наша команда»">Наша команда</a></li>
-        <li><a class="block py-4" href="/blog" data-stub="Раздел «Блог»">Блог</a></li>
-        <li><a class="block py-4" href="/otzyvy" data-stub="Раздел «Отзывы»">Отзывы</a></li>
+        <li><a class="block py-4" href="services.html">Услуги</a></li>
+        <li><a class="block py-4" href="team.html">Наша команда</a></li>
+        <li><a class="block py-4" href="blog.html">Блог</a></li>
+        <li><a class="block py-4" href="reviews.html">Отзывы</a></li>
       </ul>
       <div class="mt-8 space-y-3">
         <a href="tel:+78362000000" class="flex items-center gap-2 text-[18px] font-semibold"><svg class="h-5 w-5 text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>+7 (8362) <span class="text-muted">XX-XX-XX</span></a>
@@ -115,27 +109,29 @@
     <!-- Первый экран по макету №4: фото на всю ширину, текст слева на растворении, поиск наезжает на низ фото -->
     <section id="top" class="hero relative bg-white pb-10 lg:pb-16" aria-labelledby="hero-title">
   <div class="wrap wrap-wide relative z-10 lg:min-h-[640px] xl:min-h-[680px]">
-    <div class="hero-copy pb-9 pt-10 sm:pt-14 lg:max-w-[600px] lg:pb-[190px] lg:pt-20 xl:max-w-[660px]">
-      <h1 id="hero-title" class="hero-title text-display font-bold !leading-[1.15]">Покупка и продажа недвижимости <span class="hero-accent">в&nbsp;Йошкар-Оле</span></h1>
-      <p class="hero-lead mt-5 max-w-[34rem] text-[17px] leading-relaxed sm:text-[18px]">Подберём квартиру или дом, проверим документы и проведём сделку — от первой встречи до передачи ключей.</p>
-      <div class="mt-8 flex flex-col gap-3 xs:flex-row xs:gap-4">
-        <a href="#consultation" class="btn btn-primary min-h-[56px] px-8" data-intent="Покупка">Хотите купить?</a>
-        <a href="#consultation" class="btn btn-white min-h-[56px] px-8" data-intent="Продажа">Хотите продать?</a>
+    <div class="hero-copy pb-9 pt-10 sm:pt-14 lg:max-w-[450px] lg:pb-[190px] lg:pt-20 xl:max-w-[640px]">
+      <p class="hero-eyebrow">Агентство недвижимости в Йошкар-Оле</p>
+      <h1 id="hero-title" class="hero-title mt-3">Помогаем купить, продать и выгодно решить любой вопрос <span class="hero-accent">с&nbsp;недвижимостью</span></h1>
+      <p class="hero-lead mt-5 max-w-[34rem] text-[17px] leading-relaxed sm:text-[18px]">Профессиональное сопровождение, безопасность сделок и забота о каждом клиенте.</p>
+      <div class="mt-8 flex flex-col gap-3 xs:flex-row xs:gap-4 lg:max-xl:flex-col lg:max-xl:items-start">
+        <a href="#consultation" class="btn btn-primary min-h-[56px] px-8" data-intent="Покупка">Купить недвижимость</a>
+        <a href="#consultation" class="btn btn-white min-h-[56px] px-8" data-intent="Продажа">Продать недвижимость</a>
       </div>
       <p class="hero-lead mt-5 flex items-center gap-2 text-[14px]"><svg class="h-4 w-4 text-brand-ink" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Первая консультация бесплатно</p>
     </div>
   </div>
 
-  <div class="hero-media relative h-[min(82vw,460px)] lg:absolute lg:bottom-[150px] lg:left-[30%] lg:right-0 lg:top-0 lg:h-auto xl:left-[34%]" data-hero-media>
+  <div class="hero-media relative h-[min(82vw,460px)] lg:absolute lg:bottom-[150px] lg:left-[48%] lg:right-0 lg:top-0 lg:h-auto xl:left-[44%]" data-hero-media>
     <div class="hero-fade" aria-hidden="true"></div>
     <!-- Вариант A: современный жилой дом (направление, которое понравилось клиенту) -->
+    <!-- PLACEHOLDER: фото Йошкар-Олы прислал заказчик, права не подтверждены. Маска неба и подложка — hero-yo3-sky-* -->
     <figure class="hero-variant" data-variant="house" data-sky>
-      <img src="assets/img/photos/hero-yo-1500.webp" srcset="assets/img/photos/hero-yo-900.webp 900w, assets/img/photos/hero-yo-1500.webp 1500w" sizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" alt="Новый жилой дом из светлого кирпича в Йошкар-Оле, зимний день" width="1500" height="1048" fetchpriority="high">
+      <img src="assets/img/photos/hero-yo3-1500.webp" srcset="assets/img/photos/hero-yo3-900.webp 900w, assets/img/photos/hero-yo3-1500.webp 1500w" sizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" alt="Набережная Брюгге в Йошкар-Оле на закате: кирпичные дома с фигурными фронтонами и водная гладь" width="1500" height="1000" fetchpriority="high">
       <!-- Оживление фото: облака медленно плывут. Небо вырезано маской по силуэту здания (hero-yo-sky-mask.png),
            слои — «подложка неба» того же кадра, где здание залито цветом неба (hero-yo-sky-*.webp).
            Слой неба медленно уплывает вправо и плавно возвращается. Только transform/opacity. -->
       <div class="sky-flow" aria-hidden="true">
-        <img class="sky-layer" src="assets/img/photos/hero-yo-sky-1500.webp" srcset="assets/img/photos/hero-yo-sky-900.webp 900w, assets/img/photos/hero-yo-sky-1500.webp 1500w" sizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" alt="" width="1500" height="1048" decoding="async">
+        <img class="sky-layer" src="assets/img/photos/hero-yo3-sky-v3-1500.webp" srcset="assets/img/photos/hero-yo3-sky-v3-900.webp 900w, assets/img/photos/hero-yo3-sky-v3-1500.webp 1500w" sizes="(min-width:1280px) 66vw, (min-width:1024px) 70vw, 100vw" alt="" width="1500" height="1000" decoding="async">
       </div>
     </figure>
 
@@ -297,7 +293,7 @@
   </div>
 </section>
 
-    <!-- Актуальные объекты: 2 ряда по 4. В рабочей версии — ручная подборка администратора (featured + порядок), без случайной выдачи -->
+    <!-- Актуальные объекты: одна полоса (4 карточки на десктопе, дальше листается). В рабочей версии — ручная подборка администратора (featured + порядок), без случайной выдачи -->
 <section id="objects" class="py-16 lg:py-24" aria-labelledby="obj-title">
   <div class="wrap">
     <div class="mb-7 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
@@ -310,7 +306,7 @@
       <a href="/objects" class="link hidden text-[15px] sm:inline" data-stub="Каталог «Наши объекты»">Все объекты в каталоге</a>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 [&>*:nth-child(n+5)]:max-sm:hidden" data-objects>
+    <div class="obj-strip" data-objects tabindex="0" aria-label="Актуальные объекты, листайте горизонтально">
       
 <!-- Галерея в карточке (как на Авито): ведите курсором по фото — фото меняются по зонам, полоски внизу показывают номер.
      PLACEHOLDER: дополнительные фото — другие демо-объекты; в рабочей версии все фото объекта придут из CRM. -->
@@ -556,10 +552,7 @@
 </article>
     </div>
 
-    <div class="mt-6 flex flex-col gap-3 sm:hidden">
-      <button type="button" class="btn btn-outline" aria-expanded="false" data-objects-more>Показать ещё 8 объектов</button>
-    </div>
-    <div class="mt-10 hidden justify-center sm:flex">
+    <div class="mt-8 flex justify-center lg:mt-10">
       <a href="/objects" class="btn btn-dark" data-stub="Каталог «Наши объекты»">Смотреть все объекты</a>
     </div>
   </div>
@@ -621,8 +614,8 @@
         <li><span class="about-point-t">Объекты в работе</span><span class="about-point-d">что специалист продаёт сейчас</span></li>
       </ul>
       <div class="mt-6 flex flex-col gap-3">
-        <a href="/team#agents" class="btn btn-primary" data-stub="Выбор агента">Выбрать агента</a>
-        <a href="/team" class="btn btn-dark" data-stub="Страница «Наша команда»">Наша команда</a>
+        <a href="team.html" class="btn btn-primary">Выбрать агента</a>
+        <a href="team.html" class="btn btn-dark">Наша команда</a>
       </div>
     </aside>
   </div>
@@ -633,7 +626,7 @@
   <div class="wrap">
     <div class="mb-6 flex items-end justify-between gap-6">
       <h2 id="svc-title" class="text-h2 font-bold">Наши услуги</h2>
-      <a href="/uslugi" class="svc-all" data-stub="Раздел «Услуги»">Все услуги<svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
+      <a href="services.html" class="svc-all">Все услуги<svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
     </div>
     <ul class="svc-cards">
       <li><a class="svc-card" href="#consultation" data-intent="Покупка">
@@ -646,17 +639,17 @@
         <span class="svc-card-text"><b>Продажа</b><span>недвижимости</span></span>
         <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
       </a></li>
-      <li><a class="svc-card" href="/uslugi#mortgage" data-stub="Раздел «Услуги»">
+      <li><a class="svc-card" href="services.html#mortgage">
         <img class="svc-card-icon" src="assets/img/icons3d/mortgage.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
         <span class="svc-card-text"><b>Ипотека</b><span>и кредитование</span></span>
         <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
       </a></li>
-      <li><a class="svc-card" href="/uslugi#legal" data-stub="Раздел «Услуги»">
+      <li><a class="svc-card" href="services.html#legal">
         <img class="svc-card-icon" src="assets/img/icons3d/legal.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
         <span class="svc-card-text"><b>Юридическое</b><span>сопровождение</span></span>
         <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
       </a></li>
-      <li><a class="svc-card" href="/uslugi#insurance" data-stub="Раздел «Услуги»">
+      <li><a class="svc-card" href="services.html#insurance">
         <img class="svc-card-icon" src="assets/img/icons3d/insurance.webp" alt="" width="64" height="64" loading="lazy" decoding="async">
         <span class="svc-card-text"><b>Страхование</b><span>сделки и объекта</span></span>
         <svg class="svc-card-arrow" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg>
@@ -670,7 +663,8 @@
 <section id="consultation" class="pb-16 lg:pb-20" aria-labelledby="cons-title">
   <div class="wrap wrap-wide">
     <div class="on-dark cta">
-      <img class="cta-photo" src="assets/img/photos/cta-building-900.webp" srcset="assets/img/photos/cta-building-480.webp 480w, assets/img/photos/cta-building-900.webp 900w" sizes="(min-width:1024px) 260px, 100vw" alt="" width="900" height="675" loading="lazy" decoding="async">
+      <!-- PLACEHOLDER: фото Йошкар-Олы из Яндекс.Картинок (прислал заказчик), права не подтверждены -->
+      <img class="cta-photo" src="assets/img/photos/cta-yo-v2-900.webp" srcset="assets/img/photos/cta-yo-v2-480.webp 480w, assets/img/photos/cta-yo-v2-900.webp 900w" sizes="(min-width:1024px) 260px, 100vw" alt="" width="900" height="675" loading="lazy" decoding="async">
       <div class="cta-copy">
         <p class="text-[13px] font-semibold text-brand-on-dark">Бесплатная консультация</p>
         <h2 id="cons-title" class="mt-2 text-[26px] font-bold leading-[1.15] tracking-[-0.015em] lg:text-[28px]">Остались вопросы?<br>Мы&nbsp;поможем!</h2>
@@ -695,7 +689,7 @@
           <div class="cta-consent">
             <label class="check text-muted-on-dark">
               <input type="checkbox" name="consent" required data-msg="Нужно согласие на обработку персональных данных" aria-describedby="c-consent-err">
-              <span>Согласен на <a href="/privacy" class="underline underline-offset-2 hover:text-white" data-stub="Согласие на обработку персональных данных">обработку персональных данных</a> и принимаю <a href="/policy" class="underline underline-offset-2 hover:text-white" data-stub="Политика конфиденциальности">политику конфиденциальности</a></span>
+              <span>Согласен на <a href="personal-data.html" class="underline underline-offset-2 hover:text-white">обработку персональных данных</a> и принимаю <a href="policy.html" class="underline underline-offset-2 hover:text-white">политику конфиденциальности</a></span>
             </label>
             <p id="c-consent-err" class="field-error" aria-live="polite" hidden></p>
           </div>
@@ -717,22 +711,13 @@
   <div class="wrap">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
       <div>
-        <p class="flex items-center gap-3">
-          <img src="assets/img/brand/logo-mark.png" alt="" width="48" height="48" class="h-12 w-12" loading="lazy">
-          <span class="leading-none">
-            <span class="block text-[20px] font-bold text-white">ПОЛЕЗНЫЕ ЛЮДИ</span>
-            <span class="mt-1 block text-[13px] text-muted-on-dark">Союз риэлторов</span>
-          </span>
-        </p>
-        <p class="mt-5 max-w-[22rem] text-muted-on-dark">Агентство недвижимости в Йошкар-Оле. Покупка, продажа и сопровождение сделок.</p>
-        <div class="mt-6 grid justify-start gap-2.5 min-[400px]:grid-flow-col min-[400px]:grid-rows-2">
+        <img src="assets/img/brand/logo-horizontal-dark.png" alt="Полезные люди, Союз риэлторов" width="840" height="181" class="h-[54px] w-auto" loading="lazy">
+        <p class="mt-5 max-w-[22rem] text-muted-on-dark">Союз риэлторов в Йошкар-Оле. Покупка, продажа и сопровождение сделок.</p>
+        <div class="mt-6 flex flex-wrap items-center gap-2.5">
           <a href="https://vk.ru/polezno_12" target="_blank" rel="noopener" class="inline-flex items-center gap-2 whitespace-nowrap rounded-ctl border border-line-on-dark px-4 py-2.5 font-medium hover:border-brand-on-dark">
             Группа ВКонтакте<svg class="h-4 w-4 text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
           </a>
-          <!-- PLACEHOLDER: адреса Telegram и MAX заказчик не сообщил — заглушки; заменить href и убрать data-stub -->
-          <a href="#" data-stub="Telegram агентства" class="inline-flex items-center gap-2 whitespace-nowrap rounded-ctl border border-line-on-dark px-4 py-2.5 font-medium hover:border-brand-on-dark">
-            Канал в Telegram<svg class="h-4 w-4 text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-          </a>
+          <!-- PLACEHOLDER: адрес MAX заказчик не сообщил — заглушка; заменить href и убрать data-stub -->
           <a href="#" data-stub="MAX агентства" class="inline-flex items-center gap-2 whitespace-nowrap rounded-ctl border border-line-on-dark px-4 py-2.5 font-medium hover:border-brand-on-dark">
             Канал в MAX<svg class="h-4 w-4 text-brand-on-dark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
           </a>
@@ -744,19 +729,19 @@
           <li><a class="hover:text-brand-on-dark" href="/objects" data-stub="Каталог «Наши объекты»">Наши объекты</a></li>
           <li><a class="hover:text-brand-on-dark" href="/novostroyki" data-stub="Раздел «Новостройки»">Новостройки</a></li>
           <li><a class="hover:text-brand-on-dark" href="/doma" data-stub="Раздел «Дома»">Дома</a></li>
-          <li><a class="hover:text-brand-on-dark" href="/team" data-stub="Страница «Наша команда»">Наша команда</a></li>
-          <li><a class="hover:text-brand-on-dark" href="/blog" data-stub="Раздел «Блог»">Блог</a></li>
-          <li><a class="hover:text-brand-on-dark" href="/otzyvy" data-stub="Раздел «Отзывы»">Отзывы</a></li>
+          <li><a class="hover:text-brand-on-dark" href="team.html">Наша команда</a></li>
+          <li><a class="hover:text-brand-on-dark" href="blog.html">Блог</a></li>
+          <li><a class="hover:text-brand-on-dark" href="reviews.html">Отзывы</a></li>
         </ul>
       </nav>
       <nav aria-label="Услуги">
         <h2 class="text-[13px] font-medium text-muted-on-dark">Услуги</h2>
         <ul class="mt-4 space-y-2.5">
-          <li><a class="hover:text-brand-on-dark" href="/uslugi#buy" data-stub="Раздел «Услуги»">Покупка</a></li>
-          <li><a class="hover:text-brand-on-dark" href="/uslugi#sell" data-stub="Раздел «Услуги»">Продажа</a></li>
-          <li><a class="hover:text-brand-on-dark" href="/uslugi#mortgage" data-stub="Раздел «Услуги»">Ипотека</a></li>
-          <li><a class="hover:text-brand-on-dark" href="/uslugi#insurance" data-stub="Раздел «Услуги»">Страхование</a></li>
-          <li><a class="hover:text-brand-on-dark" href="/uslugi#legal" data-stub="Раздел «Услуги»">Экспресс-проверка</a></li>
+          <li><a class="hover:text-brand-on-dark" href="services.html#buy">Покупка</a></li>
+          <li><a class="hover:text-brand-on-dark" href="services.html#sell">Продажа</a></li>
+          <li><a class="hover:text-brand-on-dark" href="services.html#mortgage">Ипотека</a></li>
+          <li><a class="hover:text-brand-on-dark" href="services.html#insurance">Страхование</a></li>
+          <li><a class="hover:text-brand-on-dark" href="services.html#legal">Экспресс-проверка</a></li>
         </ul>
       </nav>
       <div>
@@ -772,9 +757,9 @@
     <div class="mt-12 flex flex-col gap-4 border-t border-line-on-dark pt-6 text-[13px] text-muted-on-dark md:flex-row md:items-center md:justify-between">
       <p>© 2026 «Полезные люди» — Йошкар-Ола</p>
       <ul class="flex flex-wrap gap-x-6 gap-y-2">
-        <li><a class="underline-offset-4 hover:text-white hover:underline" href="/policy" data-stub="Политика конфиденциальности">Политика конфиденциальности</a></li>
-        <li><a class="underline-offset-4 hover:text-white hover:underline" href="/privacy" data-stub="Согласие на обработку персональных данных">Обработка персональных данных</a></li>
-        <li><a class="underline-offset-4 hover:text-white hover:underline" href="assets/img/photos/credits.json" target="_blank">Источники фото</a></li>
+        <li><a class="underline-offset-4 hover:text-white hover:underline" href="policy.html">Политика конфиденциальности</a></li>
+        <li><a class="underline-offset-4 hover:text-white hover:underline" href="personal-data.html">Обработка персональных данных</a></li>
+        <li><a class="underline-offset-4 hover:text-white hover:underline" href="sitemap.html">Карта сайта</a></li>
       </ul>
     </div>
   </div>
@@ -795,11 +780,10 @@
   <button type="button" class="ask-toast-btn" aria-haspopup="dialog" aria-controls="callback" data-ask-open><svg class="h-[18px] w-[18px] flex-none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Оставьте телефон</button>
 </aside>
 
-<!-- Плавающая кнопка: по клику раскрывает способы связи. PLACEHOLDER: Telegram и MAX — заглушки до получения аккаунтов -->
+<!-- Плавающая кнопка: по клику раскрывает способы связи. PLACEHOLDER: MAX — заглушка до получения аккаунта -->
 <div class="fab-wrap" data-fab>
   <ul class="fab-menu" id="fab-menu" data-fab-menu hidden>
     <li><a class="fab-item" href="https://vk.ru/polezno_12" target="_blank" rel="noopener"><span class="fab-item-label">ВКонтакте</span><span class="fab-item-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg></span></a></li>
-    <li><a class="fab-item" href="#" data-stub="Telegram агентства"><span class="fab-item-label">Telegram</span><span class="fab-item-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span></a></li>
     <li><a class="fab-item" href="#" data-stub="MAX агентства"><span class="fab-item-label">MAX</span><span class="fab-item-icon"><span class="fab-max" aria-hidden="true"></span></span></a></li>
     <li><button type="button" class="fab-item" aria-haspopup="dialog" aria-controls="callback" data-fab-callback><span class="fab-item-label">Обратный звонок</span><span class="fab-item-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></button></li>
   </ul>
@@ -852,7 +836,7 @@
         <div>
           <label class="check text-muted">
             <input type="checkbox" name="consent" required data-msg="Нужно согласие на обработку персональных данных" aria-describedby="m-consent-err">
-            <span>Согласен на <a href="/privacy" class="link" data-stub="Согласие на обработку персональных данных">обработку персональных данных</a> и принимаю <a href="/policy" class="link" data-stub="Политика конфиденциальности">политику конфиденциальности</a></span>
+            <span>Согласен на <a href="personal-data.html" class="link">обработку персональных данных</a> и принимаю <a href="policy.html" class="link">политику конфиденциальности</a></span>
           </label>
           <p id="m-consent-err" class="field-error" aria-live="polite" hidden></p>
         </div>
@@ -890,7 +874,7 @@
       <div>
         <label class="check text-muted">
           <input type="checkbox" name="consent" required data-msg="Нужно согласие на обработку персональных данных" aria-describedby="cb-consent-err">
-          <span>Согласен на <a href="/privacy" class="underline underline-offset-2" data-stub="Согласие на обработку персональных данных">обработку персональных данных</a></span>
+          <span>Согласен на <a href="personal-data.html" class="underline underline-offset-2">обработку персональных данных</a></span>
         </label>
         <p id="cb-consent-err" class="field-error" aria-live="polite" hidden></p>
       </div>

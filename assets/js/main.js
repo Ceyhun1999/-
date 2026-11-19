@@ -95,7 +95,7 @@ function initStubs() {
     if (!link) return;
     e.preventDefault();
     $('[data-stub-title]', dialog).textContent = link.dataset.stub;
-    $('[data-stub-text]', dialog).textContent = 'Этот раздел появится на следующих этапах. Сейчас на согласовании только главная страница.';
+    $('[data-stub-text]', dialog).textContent = link.dataset.stubText || 'Этот раздел появится на следующих этапах прототипа.';
     openDialog(dialog, link);
   });
 }
@@ -282,6 +282,7 @@ function initLeadForms() {
     const validate = (el) => {
       let ok = el.type === 'checkbox' ? el.checked : el.value.trim().length > 0;
       if (ok && el.hasAttribute('data-phone')) ok = el.value.replace(/\D/g, '').length === 11;
+      if (ok && el.hasAttribute('data-email')) ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
       const err = document.getElementById(el.getAttribute('aria-describedby'));
       el.setAttribute('aria-invalid', String(!ok));
       if (err) { err.hidden = ok; err.textContent = ok ? '' : el.dataset.msg; }
@@ -340,7 +341,7 @@ function initIntents() {
     const radio = $(`input[name="intent"][value="${intent}"]`, form);
     if (radio) radio.checked = true;
     const title = $('[data-lead-title]', modal);
-    if (title) title.textContent = titles[intent] || 'Оставьте заявку';
+    if (title) title.textContent = a.dataset.intentTitle || titles[intent] || 'Оставьте заявку';
     openDialog(modal, a);
     setTimeout(() => $('#m-name', modal)?.focus(), 50);
   });
@@ -364,7 +365,7 @@ function initSheen() {
       if (isIntersecting) timers.set(target, setTimeout(() => target.classList.remove('is-shining'), 4800));
     });
   }, { threshold: 0.9 });
-  $$('.btn-primary').forEach((b) => io.observe(b));
+  $$('.btn-primary, .btn-sheen').forEach((b) => io.observe(b));
 }
 
 /* ---------- Верхняя полоса: статус офиса по времени МСК (Йошкар-Ола = МСК) ---------- */
@@ -656,7 +657,146 @@ function initFab() {
   targets.forEach((t) => io.observe(t));
 }
 
+
+/* ---------- Страница специалиста: карусель фото документов + просмотр ---------- */
+function initDocs() {
+  const root = $('[data-docs]');
+  if (!root) return;
+  const track = $('[data-docs-track]', root);
+  const prev = $('[data-docs-prev]', root), next = $('[data-docs-next]', root);
+  const items = $$('.doc-item', track);
+  const step = () => (items[0]?.getBoundingClientRect().width || 200) + 14;
+  const sync = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    $('[data-docs-nav]', root).hidden = track.scrollWidth <= track.clientWidth + 2;
+  };
+  const smooth = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: smooth }));
+  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: smooth }));
+  track.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
+
+  const viewer = $('[data-doc-viewer]');
+  if (!viewer) return;
+  const btns = $$('[data-doc-open]', track);
+  const img = $('[data-doc-viewer-img]', viewer);
+  let cur = 0;
+  const show = (i) => {
+    cur = (i + btns.length) % btns.length;
+    const b = btns[cur];
+    const cap = b.closest('figure').querySelector('[data-doc-caption]').textContent;
+    img.src = b.dataset.docFull; img.alt = cap;
+    $('[data-doc-viewer-title]', viewer).textContent = cap;
+    $('[data-doc-viewer-count]', viewer).textContent = `${cur + 1} из ${btns.length}`;
+  };
+  btns.forEach((b, i) => b.addEventListener('click', () => { show(i); openDialog(viewer, b); }));
+  $('[data-doc-viewer-prev]', viewer).addEventListener('click', () => show(cur - 1));
+  $('[data-doc-viewer-next]', viewer).addEventListener('click', () => show(cur + 1));
+  viewer.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+}
+
+/* ---------- Объекты специалиста: пустое состояние (например, у администратора объектов нет).
+   В прототипе показывается по ссылке agent.html?objects=0 ---------- */
+function initAgentObjects() {
+  const grid = $('[data-agent-objects]');
+  if (!grid) return;
+  const items = $$('[data-agent-object]', grid);
+  const demoEmpty = new URLSearchParams(location.search).get('objects') === '0';
+  items.forEach((el) => { el.hidden = demoEmpty; });
+  const empty = demoEmpty || items.length === 0;
+  grid.hidden = empty;
+  $('[data-agent-empty]').hidden = !empty;
+}
+
+
+/* ---------- Страница агента: документы — Swiper (autoplay) + Fancybox ----------
+   Автопрокрутка не запускается при prefers-reduced-motion, останавливается при наведении/фокусе/касании. */
+function initDocsSwiper() {
+  const root = $('[data-docs-swiper]');
+  if (!root || typeof Swiper === 'undefined') return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const swiper = new Swiper($('.docs-swiper', root), {
+    slidesPerView: 1.5, spaceBetween: 14, speed: 600, rewind: true, watchOverflow: true, a11y: { enabled: true, prevSlideMessage: 'Предыдущий документ', nextSlideMessage: 'Следующий документ' },
+    autoplay: reduced ? false : { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
+    navigation: { prevEl: $('.docs-prev', root), nextEl: $('.docs-next', root), disabledClass: 'is-disabled' },
+    pagination: { el: $('.docs-dots', root), clickable: true, bulletClass: 'docs-dot', bulletActiveClass: 'is-on' },
+    breakpoints: { 640: { slidesPerView: 2.3 }, 1200: { slidesPerView: 2.4 } },
+  });
+  // фокус внутри карусели останавливает автопрокрутку
+  root.addEventListener('focusin', () => swiper.autoplay?.stop());
+  root.addEventListener('focusout', () => { if (!reduced) swiper.autoplay?.start(); });
+
+  if (typeof Fancybox !== 'undefined') {
+    Fancybox.bind('[data-fancybox="docs"]', {
+      Hash: false,
+      l10n: { CLOSE: 'Закрыть', NEXT: 'Следующий', PREV: 'Предыдущий', MODAL: 'Закройте окно клавишей ESC', ERROR: 'Не удалось загрузить. Попробуйте позже.', IMAGE_ERROR: 'Изображение не найдено', TOGGLE_ZOOM: 'Увеличить', TOGGLE_THUMBS: 'Миниатюры', TOGGLE_SLIDESHOW: 'Слайд-шоу', TOGGLE_FULLSCREEN: 'На весь экран', DOWNLOAD: 'Скачать' },
+      Carousel: { Toolbar: { display: { left: ['counter'], middle: [], right: ['zoomIn', 'zoomOut', 'close'] } } },
+    });
+  }
+}
+
+
+/* ---------- Страница агента: большой отзыв — Swiper с автопрокруткой и белой пагинацией ---------- */
+function initRevSwiper() {
+  const root = $('[data-rev-swiper]');
+  if (!root || typeof Swiper === 'undefined') return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  new Swiper($('.rev-swiper', root), {
+    slidesPerView: 1, spaceBetween: 24, speed: 700, loop: true,
+    autoplay: reduced ? false : { delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true },
+    pagination: { el: $('.rev-dots', root), clickable: true, bulletClass: 'rev-dot', bulletActiveClass: 'is-on' },
+    a11y: { enabled: true, paginationBulletMessage: 'Отзыв {{index}}' },
+  });
+}
+
+
+/* ---------- Страница «Отзывы»: сортировка по дате ---------- */
+function initReviewsSort() {
+  const sel = $('[data-rv-sort]'); const list = $('[data-rv-list]');
+  if (!sel || !list) return;
+  sel.addEventListener('change', () => {
+    const dir = sel.value === 'old' ? 1 : -1;
+    $$('li', list).sort((a, b) => dir * a.dataset.date.localeCompare(b.dataset.date)).forEach((li) => list.appendChild(li));
+  });
+}
+
+
+/* ---------- Статья: активный пункт оглавления, «поделиться» ---------- */
+function initArticle() {
+  const links = $$('[data-toc-link]');
+  if (links.length && 'IntersectionObserver' in window) {
+    const map = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        map.get(e.target.id)?.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    map.forEach((_, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
+  }
+  const vk = $('[data-share-vk]');
+  if (vk) vk.href = 'https://vk.com/share.php?url=' + encodeURIComponent(location.href.split('#')[0]);
+  const copy = $('[data-copy-link]'); const status = $('[data-copy-status]');
+  copy?.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(location.href.split('#')[0]); status.textContent = 'Ссылка скопирована'; }
+    catch { status.textContent = 'Не удалось скопировать — скопируйте адрес из строки браузера'; }
+    setTimeout(() => { status.textContent = ''; }, 3000);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initArticle();
+  initReviewsSort();
+  initRevSwiper();
+  initDocsSwiper();
+  initDocs();
+  initAgentObjects();
   initMenu();
   initCity();
   initDialogs();
