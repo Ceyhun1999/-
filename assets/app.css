@@ -10479,3 +10479,6 @@ label:has(> input[type="checkbox"][aria-invalid="true"]) > span a { color: #e548
 .abt-step a { color: var(--brand-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 main:has(.abt-banner) > section[aria-labelledby="pick-title"] { padding-top: 64px; }
 @media (max-width: 639px) { .abt-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; } .abt-role h3 { font-size: 16px; } .abt-role p { font-size: 13.5px; } }
+/* «Союз, а не агентство»: колонки симметричны — по 3 пункта одинаковой высоты */
+@media (min-width: 1100px) { .abt-union-list li { white-space: nowrap; } }
+@media (min-width: 1100px) and (max-width: 1279px) { .abt-union-copy { padding: 0 28px; } .abt-union-col { padding: 0 24px; } .abt-union-list li { font-size: 14.5px; } }
