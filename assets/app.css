@@ -10385,3 +10385,30 @@ dialog.viewer {
     display: none;
   }
 }
+
+/* ===== Ошибки форм без сдвига вёрстки (все формы сайта) =====
+   Текст ошибки скрыт визуально, но читается скринридером (aria-live) — форма не «едет».
+   Неверное поле подсвечивается красным; несогласие — красная галочка и подпись. */
+.field-error, .on-dark .field-error,
+.acons-field .field-error, .rv-cta .cta-form .field-error, .bsub-field .field-error,
+.asub-field .field-error, .asub-consent .field-error {
+  position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important;
+  overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important;
+}
+input[aria-invalid="true"]:not([type="checkbox"]):not([type="radio"]),
+textarea[aria-invalid="true"], select[aria-invalid="true"] {
+  border-color: #e5483b !important; background-color: #fff5f4 !important;
+  box-shadow: 0 0 0 3px rgb(229 72 59 / 0.22) !important;
+}
+input[aria-invalid="true"]::placeholder { color: #c2453a !important; }
+input[type="checkbox"][aria-invalid="true"] { outline: 2px solid #e5483b; outline-offset: 2px; border-radius: 4px; }
+label:has(> input[type="checkbox"][aria-invalid="true"]) > span,
+label:has(> input[type="checkbox"][aria-invalid="true"]) > span a { color: #e5483b !important; }
+.on-dark label:has(> input[type="checkbox"][aria-invalid="true"]) > span,
+.on-dark label:has(> input[type="checkbox"][aria-invalid="true"]) > span a,
+.acons label:has(> input[type="checkbox"][aria-invalid="true"]) > span,
+.asub label:has(> input[type="checkbox"][aria-invalid="true"]) > span { color: #ff9b8f !important; }
+@media (prefers-reduced-motion: no-preference) {
+  input[aria-invalid="true"]:not([type="checkbox"]) { animation: field-shake 320ms ease-in-out; }
+}
+@keyframes field-shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
