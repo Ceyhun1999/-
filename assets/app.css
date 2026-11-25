@@ -10478,3 +10478,4 @@ label:has(> input[type="checkbox"][aria-invalid="true"]) > span a { color: #e548
 .abt-step p { margin-top: 6px; font-size: 15px; line-height: 1.55; color: var(--muted); }
 .abt-step a { color: var(--brand-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 main:has(.abt-banner) > section[aria-labelledby="pick-title"] { padding-top: 64px; }
+@media (max-width: 639px) { .abt-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; } .abt-role h3 { font-size: 16px; } .abt-role p { font-size: 13.5px; } }
