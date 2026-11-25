@@ -10495,3 +10495,6 @@ main:has(.abt-banner) > section[aria-labelledby="pick-title"] { padding-top: 64p
 @media (min-width: 768px) { .ah-status .status-band[style*="--n:1"] { grid-template-columns: minmax(0, 560px); } }
 .ah-status .status-ring .status-ok svg { width: 13px !important; height: 13px !important; stroke-width: 3 !important; }
 .ah-status .status-ring .status-ok { right: -3px; bottom: -3px; }
+/* Переход в каталог: три кнопки */
+@media (min-width: 640px) { .obj-jump-list { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+@media (max-width: 639px) { .obj-jump-list { grid-template-columns: 1fr !important; } }
