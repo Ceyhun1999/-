@@ -10429,3 +10429,52 @@ label:has(> input[type="checkbox"][aria-invalid="true"]) > span a { color: #e548
 .art-body > ul:not(.art-checklist) { margin-top: 14px; padding-left: 22px; list-style: disc; display: grid; gap: 8px; }
 .art-body > ul:not(.art-checklist) li::marker { color: var(--brand); }
 .art-body b { color: #1d202a; }
+
+/* ===== Страница «Об агентстве» ===== */
+.abt-banner .team-banner-media img { object-position: 70% 50%; }
+.abt-sec { padding: 64px 0 0; background: #fff; }
+.abt-sec--tight { padding-top: 56px; }
+.abt-sub { margin-top: 10px; max-width: 40rem; font-size: 16px; line-height: 1.55; color: var(--muted); }
+
+.abt-union { padding: 56px 0 0; background: #fff; }
+.abt-union-panel { display: grid; gap: 28px; padding: 30px 24px; border-radius: 24px; background: var(--graphite); }
+@media (min-width: 1100px) { .abt-union-panel { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0; padding: 44px 0; } }
+.abt-union-copy p { margin-top: 14px; font-size: 16px; line-height: 1.6; color: rgb(255 255 255 / 0.82); max-width: 28rem; }
+.abt-union-title { font-family: 'Montserrat', Inter, system-ui, sans-serif; font-weight: 700; font-size: clamp(26px, 1rem + 1.6vw, 34px); line-height: 1.15; letter-spacing: -0.02em; color: #fff; }
+.abt-union-h { font-size: 15px; font-weight: 700; color: var(--brand-on-dark); }
+.abt-union-list { display: grid; gap: 14px; margin-top: 16px; }
+.abt-union-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.45; color: #fff; }
+.abt-union-list svg { width: 22px; height: 22px; flex: none; margin-top: -1px; color: rgb(255 255 255 / 0.85); }
+.abt-union-col--shared .abt-union-list svg { color: var(--brand-on-dark); }
+@media (min-width: 1100px) {
+  .abt-union-copy { padding: 0 44px; }
+  .abt-union-col { padding: 0 40px; border-left: 1px solid rgb(255 255 255 / 0.12); }
+}
+
+.abt-roles { display: grid; gap: 22px; margin-top: 26px; }
+@media (min-width: 640px) { .abt-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .abt-roles { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; } }
+.abt-role img { width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; object-position: 50% 22%; border-radius: 18px; background: var(--line); }
+.abt-role h3 { margin-top: 16px; font-family: 'Montserrat', Inter, system-ui, sans-serif; font-weight: 700; font-size: 19px; line-height: 1.25; color: #1d202a; }
+.abt-role p { margin-top: 6px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+
+.abt-formats { display: grid; gap: 16px; margin-top: 24px; }
+@media (min-width: 768px) { .abt-formats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; } }
+.abt-format { padding: 26px 28px; border-radius: 20px; background: var(--paper); }
+.abt-format-tag { height: 32px; padding: 0 14px; font-size: 15px; font-weight: 600; border-radius: 10px; }
+.abt-format p { margin-top: 14px; font-size: 16px; line-height: 1.6; color: #2a2d33; max-width: 34rem; }
+
+.abt-status { padding: 64px 0 0; }
+.abt-status .status-band { margin-top: 24px; }
+
+.abt-steps { display: grid; gap: 22px; margin-top: 26px; counter-reset: none; }
+@media (min-width: 900px) { .abt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; } }
+.abt-step { position: relative; padding: 0 0 0 64px; }
+@media (min-width: 900px) { .abt-step { padding: 0 32px 0 0; } .abt-step + .abt-step { padding-left: 32px; border-left: 1px solid var(--line); } }
+.abt-step-n { position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 9999px; background: var(--graphite); color: #fff; font-family: 'Montserrat', Inter, sans-serif; font-weight: 700; font-size: 18px; }
+@media (min-width: 900px) { .abt-step-n { position: static; } }
+.abt-step h3 { margin-top: 4px; font-family: 'Montserrat', Inter, system-ui, sans-serif; font-weight: 700; font-size: 19px; color: #1d202a; }
+@media (min-width: 900px) { .abt-step h3 { margin-top: 16px; } }
+.abt-step p { margin-top: 6px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+.abt-step a { color: var(--brand-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+main:has(.abt-banner) > section[aria-labelledby="pick-title"] { padding-top: 64px; }
